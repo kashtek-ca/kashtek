@@ -311,6 +311,56 @@
       font-size:var(--text-base);
     }
 
+    /* ── CLIENTS ─────────────────────────── */
+    .clients{
+      padding:var(--space-section) var(--space-md);
+      background:var(--color-fog);
+    }
+    .clients-inner{
+      max-width:900px;margin:0 auto;
+      text-align:center;
+    }
+    .clients-inner .section-label{justify-content:center}
+    .clients-inner .section-title{
+      margin-left:auto;margin-right:auto;
+    }
+    .clients-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:var(--space-md);
+      margin-top:var(--space-md);
+    }
+    .client-card{
+      padding:var(--space-md) var(--space-sm);
+      background:var(--color-mist);
+      border-radius:10px;
+      border:1px solid rgba(45,42,36,0.05);
+    }
+    .client-card-icon{
+      width:48px;height:48px;
+      display:flex;align-items:center;justify-content:center;
+      margin:0 auto var(--space-sm);
+      background:var(--color-forest-dim);
+      border-radius:10px;
+      color:var(--color-forest);
+    }
+    .client-card-icon svg{width:24px;height:24px}
+    .client-card h3{
+      font-family:var(--font-display);
+      font-size:1.25rem;
+      font-weight:400;
+      margin-bottom:0.5rem;
+      letter-spacing:-0.01em;
+    }
+    .client-card p{
+      color:rgba(45,42,36,0.65);
+      font-size:var(--text-base);
+      line-height:1.7;
+    }
+    @media(max-width:768px){
+      .clients-grid{grid-template-columns:1fr}
+    }
+
     /* ── PHILOSOPHY ───────────────────────── */
     .philosophy{
       padding:var(--space-section) var(--space-md);
@@ -564,12 +614,43 @@
     </div>
   </section>
 
+  <!-- WHO WE WORK WITH -->
+  <section class="clients" id="clients">
+    <div class="clients-inner reveal">
+      <p class="section-label">Who We Work With</p>
+      <h2 class="section-title">Built for the people who build things.</h2>
+      <div class="clients-grid">
+        <div class="client-card">
+          <div class="client-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Small &amp; Medium Businesses</h3>
+          <p>You know your business better than anyone. We help you pair that knowledge with the right technology to work smarter and grow faster.</p>
+        </div>
+        <div class="client-card">
+          <div class="client-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3>Individuals</h3>
+          <p>Whether you're launching a side project, automating your workflow, or exploring an idea — we'll help you bring it to life with the right tools.</p>
+        </div>
+        <div class="client-card">
+          <div class="client-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+          <h3>Non-Profits</h3>
+          <p>Limited budgets shouldn't mean limited technology. We work with non-profits to stretch resources further through smart automation and practical AI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PHILOSOPHY -->
   <section class="philosophy">
     <div class="philosophy-inner reveal">
       <p class="section-label">Our Approach</p>
       <blockquote>
-        &ldquo;The best technology doesn't come from a boardroom — it comes from rolling up your sleeves, understanding the problem firsthand, and building the solution side by side.&rdquo;
+        Nobody knows your business like you do. We're just here to turn that knowledge into technology that actually works.
       </blockquote>
       <cite>KashTek</cite>
     </div>
