@@ -1,0 +1,28 @@
+# KashTek
+
+> KashTek is a technology and AI consulting practice based in Vancouver, BC, Canada. Founded by Jeremy Kashkett, it provides hands-on, collaborative consulting for small and medium businesses, individuals, and non-profits. KashTek builds custom AI integrations, data analytics solutions, workflow automations, and manages complex projects — always working alongside the client, not handing off a product.
+
+KashTek's approach is collaborative and iterative. Every engagement starts with understanding how the client's business actually works, then prototyping and refining solutions together until they fit. No off-the-shelf templates, no one-size-fits-all.
+
+## Services
+
+- [AI Strategy & Integration](https://kashtek.ca/#services): Custom AI solutions built for specific business problems — identifying where AI fits, prototyping, and refining until it saves real time and money
+- [Data Analytics & BI](https://kashtek.ca/#services): Turning raw data into useful dashboards, reports, and models built around the questions a business actually needs answered
+- [Workflow Automation](https://kashtek.ca/#services): Mapping workflows, connecting tools, and building automations that reduce manual busywork
+- [Project Management Consulting](https://kashtek.ca/#services): Embedding with teams to plan, organize, and drive complex initiatives to completion — on scope, on time
+
+## Who We Work With
+
+- [Small & Medium Businesses](https://kashtek.ca/#clients): Pairing domain knowledge with the right technology to work smarter
+- [Individuals](https://kashtek.ca/#clients): Side projects, personal automations, turning ideas into working tools
+- [Non-Profits](https://kashtek.ca/#clients): Stretching limited budgets further through smart automation and practical AI
+
+## Event Management
+
+- [Kash EM — Event Management](https://kashtek.ca/events.html): Full-service event management for corporate functions, private events, and community gatherings in the Vancouver area
+
+## Contact
+
+- Email: info.kashtek@gmail.com
+- Location: Vancouver, BC, Canada
+- Website: https://kashtek.ca
