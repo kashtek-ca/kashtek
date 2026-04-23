@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — KashTek</title>
+  <meta name="description" content="KashTek consulting services — AI strategy, data analytics, workflow automation, and project management. Starting under $500 CAD.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --color-fog:#f4f1eb;--color-mist:#ece8e0;--color-stone:#d4cfc6;--color-driftwood:#b8b1a4;
+      --color-cedar:#2d2a24;--color-bark:#1a1816;
+      --color-forest:#3d6b4f;--color-forest-dim:rgba(61,107,79,0.1);--color-forest-glow:rgba(61,107,79,0.25);
+      --color-plum:#4e3d6e;--color-plum-dim:rgba(78,61,110,0.08);
+      --color-moss:#7a9e7e;--color-fern:#a8c5ab;
+
+      --font-display:'DM Serif Display',Georgia,serif;
+      --font-body:'Inter',system-ui,sans-serif;
+
+      --text-sm:0.8125rem;
+      --text-base:clamp(0.9375rem,0.9rem + 0.2vw,1rem);
+      --text-lg:clamp(1.0625rem,1rem + 0.3vw,1.1875rem);
+      --text-xl:clamp(1.375rem,1rem + 1.5vw,2.25rem);
+      --text-2xl:clamp(1.75rem,1.2rem + 2.5vw,3rem);
+
+      --space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:4rem;
+      --space-xl:clamp(5rem,4rem + 5vw,10rem);
+      --space-section:clamp(6rem,4rem + 6vw,12rem);
+
+      --duration-fast:150ms;--duration-normal:400ms;
+      --ease-out:cubic-bezier(0.16,1,0.3,1);
+    }
+
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);background:var(--color-fog);color:var(--color-cedar);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    a{color:var(--color-forest);text-decoration:none;transition:color var(--duration-normal) var(--ease-out)}
+    a:hover{color:var(--color-plum)}
+
+    /* ── NAV ─────────────────────────────── */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:var(--space-sm) var(--space-md);display:flex;align-items:center;justify-content:space-between;background:rgba(244,241,235,0.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(45,42,36,0.06);transition:box-shadow var(--duration-normal) var(--ease-out)}
+    .nav.scrolled{box-shadow:0 1px 20px rgba(45,42,36,0.08)}
+    .nav-brand{display:flex;align-items:center;gap:0.75rem}
+    .nav-logo{width:40px;height:40px;border-radius:6px;object-fit:contain}
+    .nav-wordmark{font-family:var(--font-display);font-size:1.375rem;color:var(--color-cedar);letter-spacing:-0.01em}
+    .nav-wordmark span{color:var(--color-forest)}
+    .nav-links{display:flex;gap:var(--space-md);list-style:none}
+    .nav-links a{color:var(--color-driftwood);font-size:var(--text-sm);font-weight:500;text-transform:uppercase;letter-spacing:0.12em;transition:color var(--duration-normal) var(--ease-out)}
+    .nav-links a:hover,.nav-links a.active{color:var(--color-forest)}
+    .nav-toggle{display:none;background:none;border:none;color:var(--color-cedar);font-size:1.5rem;cursor:pointer;padding:0.25rem}
+
+    /* ── PAGE HERO ────────────────────────── */
+    .page-hero{
+      padding:10rem var(--space-md) var(--space-xl);
+      position:relative;overflow:hidden;
+      background:var(--color-mist);
+    }
+    .page-hero::before{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(61,107,79,0.06) 0%,transparent 50%,rgba(78,61,110,0.04) 100%);
+    }
+    .page-hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1}
+    .page-hero .eyebrow{
+      display:inline-flex;align-items:center;gap:0.5rem;
+      font-size:var(--text-sm);font-weight:500;text-transform:uppercase;letter-spacing:0.14em;
+      color:var(--color-forest);margin-bottom:var(--space-sm);
+    }
+    .page-hero .eyebrow::before{content:'';width:24px;height:1px;background:var(--color-forest)}
+    .page-hero h1{
+      font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;
+      line-height:1.15;letter-spacing:-0.01em;color:var(--color-bark);
+      margin-bottom:var(--space-md);max-width:600px;
+    }
+    .page-hero-sub{
+      font-size:var(--text-lg);color:rgba(45,42,36,0.7);max-width:560px;line-height:1.75;
+    }
+
+    /* ── SECTION SHARED ──────────────────── */
+    .section-label{
+      display:inline-flex;align-items:center;gap:0.625rem;
+      font-size:var(--text-sm);font-weight:500;text-transform:uppercase;letter-spacing:0.14em;
+      color:var(--color-forest);margin-bottom:var(--space-sm);
+    }
+    .section-label::before{content:'';width:20px;height:1px;background:var(--color-forest)}
+
+    /* ── SERVICE DETAIL ──────────────────── */
+    .service-detail{
+      padding:var(--space-section) var(--space-md);
+      position:relative;
+    }
+    .service-detail:nth-child(odd){background:var(--color-fog)}
+    .service-detail:nth-child(even){background:var(--color-mist)}
+    .service-detail-inner{max-width:1100px;margin:0 auto}
+
+    .service-detail-header{
+      display:grid;grid-template-columns:auto 1fr;gap:var(--space-md);
+      align-items:start;margin-bottom:var(--space-lg);
+    }
+    .service-detail-number{
+      font-family:var(--font-display);font-size:5rem;line-height:1;
+      color:var(--color-forest-dim);
+    }
+    .service-detail-header h2{
+      font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;
+      letter-spacing:-0.01em;color:var(--color-bark);margin-bottom:0.5rem;
+    }
+    .service-detail-header p{
+      font-size:var(--text-lg);color:rgba(45,42,36,0.7);line-height:1.75;max-width:560px;
+    }
+
+    .service-detail-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md);
+    }
+    .detail-card{
+      padding:var(--space-md);
+      background:var(--color-fog);
+      border-radius:10px;
+      border:1px solid rgba(45,42,36,0.05);
+      transition:transform var(--duration-normal) var(--ease-out),box-shadow var(--duration-normal) var(--ease-out);
+    }
+    .service-detail:nth-child(odd) .detail-card{background:var(--color-mist)}
+    .detail-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 40px rgba(45,42,36,0.06);
+    }
+    .detail-card h3{
+      font-family:var(--font-display);font-size:1.125rem;font-weight:400;
+      margin-bottom:0.75rem;letter-spacing:-0.01em;color:var(--color-bark);
+    }
+    .detail-card p{
+      color:rgba(45,42,36,0.65);font-size:var(--text-base);line-height:1.75;
+    }
+    .detail-card ul{
+      list-style:none;padding:0;
+    }
+    .detail-card li{
+      color:rgba(45,42,36,0.65);font-size:var(--text-base);line-height:1.75;
+      padding-left:1.25rem;position:relative;margin-bottom:0.25rem;
+    }
+    .detail-card li::before{
+      content:'';position:absolute;left:0;top:0.7em;
+      width:6px;height:6px;border-radius:50%;
+      background:var(--color-forest-dim);
+    }
+
+    /* ── PRICING SECTION ─────────────────── */
+    .pricing{
+      padding:var(--space-section) var(--space-md);
+      background:var(--color-bark);
+      position:relative;overflow:hidden;
+    }
+    .pricing::before{
+      content:'';position:absolute;inset:0;opacity:0.04;
+      background-image:repeating-conic-gradient(rgba(255,255,255,0.3) 0deg,transparent 1deg,transparent 60deg);
+      background-size:120px 120px;
+    }
+    .pricing-inner{
+      max-width:1100px;margin:0 auto;position:relative;z-index:1;
+    }
+    .pricing .section-label{color:var(--color-moss)}
+    .pricing .section-label::before{background:var(--color-moss)}
+    .pricing-title{
+      font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;
+      color:var(--color-fog);margin-bottom:var(--space-sm);line-height:1.15;
+    }
+    .pricing-sub{
+      color:var(--color-driftwood);font-size:var(--text-lg);
+      max-width:560px;line-height:1.75;margin-bottom:var(--space-lg);
+    }
+
+    .pricing-cards{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md);
+    }
+    .pricing-card{
+      padding:var(--space-md);
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:10px;
+      transition:transform var(--duration-normal) var(--ease-out),border-color var(--duration-normal) var(--ease-out);
+    }
+    .pricing-card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(61,107,79,0.3);
+    }
+    .pricing-card.featured{
+      border-color:var(--color-forest);
+      background:rgba(61,107,79,0.08);
+    }
+    .pricing-card-label{
+      font-size:var(--text-sm);font-weight:500;text-transform:uppercase;
+      letter-spacing:0.12em;color:var(--color-moss);margin-bottom:var(--space-sm);
+    }
+    .pricing-card-price{
+      font-family:var(--font-display);font-size:var(--text-xl);
+      color:var(--color-fog);margin-bottom:0.25rem;
+    }
+    .pricing-card-unit{
+      font-size:var(--text-sm);color:var(--color-driftwood);margin-bottom:var(--space-md);
+    }
+    .pricing-card p{
+      color:rgba(244,241,235,0.6);font-size:var(--text-base);line-height:1.75;
+    }
+
+    /* ── CTA ─────────────────────────────── */
+    .cta-section{
+      padding:var(--space-section) var(--space-md);
+      background:var(--color-fog);text-align:center;
+    }
+    .cta-inner{max-width:600px;margin:0 auto}
+    .cta-inner h2{
+      font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;
+      color:var(--color-bark);margin-bottom:var(--space-sm);line-height:1.2;
+    }
+    .cta-inner p{
+      color:rgba(45,42,36,0.7);font-size:var(--text-lg);line-height:1.75;
+      margin-bottom:var(--space-md);
+    }
+    .cta-btn{
+      display:inline-flex;align-items:center;gap:0.75rem;
+      padding:1.125rem 2.75rem;
+      background:var(--color-forest);color:var(--color-fog);
+      font-weight:600;font-size:var(--text-sm);
+      letter-spacing:0.08em;text-transform:uppercase;
+      border:none;border-radius:3px;cursor:pointer;
+      transition:transform var(--duration-normal) var(--ease-out),box-shadow var(--duration-normal) var(--ease-out),background var(--duration-normal) var(--ease-out);
+    }
+    .cta-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 40px var(--color-forest-glow);
+      background:var(--color-plum);color:var(--color-fog);
+    }
+
+    /* ── FOOTER ───────────────────────────── */
+    .footer{padding:var(--space-lg) var(--space-md);background:var(--color-bark);border-top:1px solid rgba(255,255,255,0.04)}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .footer-brand{display:flex;align-items:center;gap:0.625rem}
+    .footer-logo{width:28px;height:28px;border-radius:4px;object-fit:contain;opacity:0.6}
+    .footer-text{font-size:var(--text-sm);color:var(--color-driftwood)}
+    .footer-links{display:flex;gap:1.5rem;list-style:none}
+    .footer-links a{font-size:var(--text-sm);color:var(--color-driftwood)}
+    .footer-links a:hover{color:var(--color-fog)}
+
+    /* ── SCROLL REVEAL ───────────────────── */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* ── RESPONSIVE ───────────────────────── */
+    @media(max-width:768px){
+      .nav-links{
+        display:none;position:absolute;top:100%;left:0;right:0;
+        flex-direction:column;background:rgba(244,241,235,0.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+        padding:var(--space-md);gap:var(--space-sm);border-bottom:1px solid rgba(45,42,36,0.06);
+      }
+      .nav-links.open{display:flex}
+      .nav-toggle{display:block}
+      .service-detail-header{grid-template-columns:1fr}
+      .service-detail-number{font-size:3.5rem}
+      .service-detail-grid{grid-template-columns:1fr}
+      .pricing-cards{grid-template-columns:1fr}
+      .footer-inner{flex-direction:column;gap:var(--space-sm);text-align:center}
+      .footer-links{flex-wrap:wrap;justify-content:center}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{transition-duration:0.01ms !important;animation-duration:0.01ms !important}
+      html{scroll-behavior:auto}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand">
+      <img src="logo.jpg" alt="KashTek logo" class="nav-logo" width="40" height="40">
+      <span class="nav-wordmark">Kash<span>Tek</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="mailto:info.kashtek@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <div class="page-hero-inner reveal">
+      <span class="eyebrow">Our Services</span>
+      <h1>Technology that fits your business, not the other way around.</h1>
+      <p class="page-hero-sub">Every engagement starts with understanding your problem. We work alongside you to scope, build, and refine — with projects starting under $500 CAD.</p>
+    </div>
+  </header>
+
+  <!-- SERVICE 01: AI STRATEGY -->
+  <section class="service-detail" id="ai-strategy">
+    <div class="service-detail-inner">
+      <div class="service-detail-header reveal">
+        <span class="service-detail-number">01</span>
+        <div>
+          <h2>AI Strategy & Integration</h2>
+          <p>AI works best when it's built for your specific problem. We help you identify where it fits, prototype solutions together, and refine them until they genuinely save you time and money.</p>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="detail-card reveal">
+          <h3>Discovery & Assessment</h3>
+          <p>We start by understanding your operations — what takes too long, what gets missed, where the bottlenecks are. From there we identify where AI can make a real difference versus where simpler tools do the job.</p>
+        </div>
+        <div class="detail-card reveal">
+          <h3>Prototyping & Proof of Concept</h3>
+          <p>Before committing to a full build, we prototype. You see working examples early, test them against real scenarios, and we iterate together until the approach is proven.</p>
+        </div>
+        <div class="detail-card reveal">
+          <h3>Integration & Deployment</h3>
+          <p>Once validated, we integrate the solution into your existing workflows and tools. No rip-and-replace — we build around what you already use so adoption is seamless.</p>
+        </div>
+        <div class="detail-card reveal">
+          <h3>What This Looks Like</h3>
+          <ul>
+            <li>Automated document processing and data extraction</li>
+            <li>Custom chatbots for customer support or internal Q&A</li>
+            <li>Predictive models for forecasting and planning</li>
+            <li>AI-assisted content generation and review</li>
+            <li>Intelligent email triage and routing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 02: DATA ANALYTICS -->
+  <section class="service-detail" id="data-analytics">
+    <div class="service-detail-inner">
+      <div class="service-detail-header reveal">
+        <span class="service-detail-number">02</span>
+        <div>
+          <h2>Data Analytics & Business Intelligence</h2>
+          <p>Your business generates data every day. We turn it into something useful — dashboards, reports, and models built around the questions you actually need answered.</p>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="detail-card reveal">
+          <h3>Data Audit & Cleanup</h3>
+          <p>Before building anything, we assess what data you have, where it lives, and what shape it's in. Clean data is the foundation — we help you get there without disrupting your day-to-day.</p>
+        </div>
+        <div class="detail-card reveal">
+          <h3>Dashboard & Report Design</h3>
+          <p>Custom dashboards tailored to how your team actually works. Not a wall of charts — clear, focused views that answer specific questions and drive decisions.</p>
+        </div>
+        <div class="detail-card reveal">
+          <h3>Automated Reporting</h3>
+          <p>Reports that build themselves. We set up automated pipelines so your weekly, monthly, and quarterly numbers are ready when you are — no manual spreadsheet work.</p>
+        </div>
+        <div class="detail-card reveal">
+          <h3>What This Looks Like</h3>
+          <ul>
+            <li>Sales and revenue dashboards with live data</li>
+            <li>Customer analytics and segmentation</li>
+            <li>Financial reporting and KPI tracking</li>
+            <li>Inventory and operations visibility</li>
+            <li>Automated weekly and monthly report delivery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 03: WORKFLOW AUTOMATION -->
+  <section class="service-detail" id="workflow-automation">
+    <div class="service-detail-inner">
+      <div class="service-detail-header reveal">
+        <span class="service-detail-number">03</span>
+        <div>
+          <h2>Workflow Automation</h2>
+          <p>Manual processes eat up your day. We map your workflows, connect your tools, and build automations so your team spends less time on busywork and more on what matters.</p>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="detail-card reveal">
+          <h3>Process Mapping</h3>
+          <p>We walk through your current workflows step by step — who does what, in which tools, and how long it takes. This reveals the friction points and the quick wins.</p>
+        </div>
+        <div class="detail-card reveal">
+          <h3>Tool Integration</h3>
+          <p>Your tools should talk to each other. We connect your existing software — CRM, email, invoicing, project management — so data flows automatically instead of being copied by hand.</p>
+        </div>
+        <div class="detail-card reveal">
+          <h3>Custom Automation</h3>
+          <p>From simple triggers to complex multi-step sequences, we build automations that handle the repetitive work. Each one is tested with your real data before going live.</p>
+        </div>
+        <div class="detail-card reveal">
+          <h3>What This Looks Like</h3>
+          <ul>
+            <li>Automated invoicing and payment reminders</li>
+            <li>Email sequences and follow-up workflows</li>
+            <li>Data entry elimination between systems</li>
+            <li>Client onboarding automation</li>
+            <li>File organization and document routing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 04: PROJECT MANAGEMENT -->
+  <section class="service-detail" id="project-management">
+    <div class="service-detail-inner">
+      <div class="service-detail-header reveal">
+        <span class="service-detail-number">04</span>
+        <div>
+          <h2>Project Management Consulting</h2>
+          <p>Complex projects need someone who's been in the trenches. We embed with your team to plan, organize, and drive initiatives across the finish line — on scope, on time.</p>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="detail-card reveal">
+          <h3>Planning & Scoping</h3>
+          <p>We define what done looks like before work begins. Clear scope, realistic timelines, identified risks, and a plan your team can actually follow.</p>
+        </div>
+        <div class="detail-card reveal">
+          <h3>Coordination & Execution</h3>
+          <p>We keep things moving — managing dependencies, clearing blockers, running standups, and making sure the right people are focused on the right things at the right time.</p>
+        </div>
+        <div class="detail-card reveal">
+          <h3>Reporting & Handoff</h3>
+          <p>Clear status updates for stakeholders without the jargon. When the project wraps, we hand off documentation and processes so your team can maintain momentum independently.</p>
+        </div>
+        <div class="detail-card reveal">
+          <h3>What This Looks Like</h3>
+          <ul>
+            <li>Technology rollouts and system migrations</li>
+            <li>Office relocations and setup</li>
+            <li>Product launches and go-to-market coordination</li>
+            <li>Vendor selection and onboarding</li>
+            <li>Cross-team initiatives with multiple stakeholders</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="pricing-inner">
+      <div class="reveal">
+        <p class="section-label">Pricing</p>
+        <h2 class="pricing-title">Simple, transparent pricing.</h2>
+        <p class="pricing-sub">Every project is different, but our rates aren't a mystery. We'll scope the work together and give you a clear quote before anything starts.</p>
+      </div>
+      <div class="pricing-cards">
+        <div class="pricing-card reveal">
+          <p class="pricing-card-label">Starting From</p>
+          <p class="pricing-card-price">Under $500</p>
+          <p class="pricing-card-unit">CAD &middot; Project-based</p>
+          <p>Smaller engagements — a quick automation, a dashboard build, or an AI proof of concept. Scoped and quoted upfront so there are no surprises.</p>
+        </div>
+        <div class="pricing-card featured reveal">
+          <p class="pricing-card-label">Consultation Rate</p>
+          <p class="pricing-card-price">$100</p>
+          <p class="pricing-card-unit">CAD / hour</p>
+          <p>For ongoing work, advisory sessions, or projects billed by the hour. Invoiced monthly with clear time tracking and regular check-ins.</p>
+        </div>
+        <div class="pricing-card reveal">
+          <p class="pricing-card-label">Custom Projects</p>
+          <p class="pricing-card-price">Contact Us</p>
+          <p class="pricing-card-unit">Scoped &amp; quoted</p>
+          <p>Larger builds, multi-phase projects, or retainer arrangements. We'll work with you to define scope and deliverables, then provide a fixed quote.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner reveal">
+      <h2>Ready to get started?</h2>
+      <p>Tell us what you're working on. Every project starts with a conversation — no commitment, no pressure.</p>
+      <a href="mailto:info.kashtek@gmail.com" class="cta-btn">Start the Conversation &rarr;</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.jpg" alt="" class="footer-logo" width="28" height="28" aria-hidden="true">
+        <span class="footer-text">KashTek &mdash; Vancouver, BC</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="refund-policy.html">Refund Policy</a></li>
+      </ul>
+      <span class="footer-text">&copy; 2026 KashTek. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+      var links = document.querySelector('.nav-links');
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      links.classList.toggle('open');
+      this.setAttribute('aria-expanded', String(!expanded));
+    });
+
+    var nav = document.querySelector('.nav');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, {passive: true});
+
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.15, rootMargin: '0px 0px -40px 0px'});
+    reveals.forEach(function(el) { observer.observe(el); });
+  </script>
+
+</body>
+</html>
