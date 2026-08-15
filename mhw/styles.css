@@ -356,6 +356,20 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 .focus-grid img {
   width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
 }
+
+/* icon tiles — solid pictograms in the logo's visual language */
+.tile-art {
+  display: grid; place-items: center;
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(165deg, var(--paper-deep) 20%, var(--lichen) 130%);
+}
+.tile-art svg { width: 46%; height: auto; }
+.give-icon {
+  display: grid; place-items: center;
+  aspect-ratio: 3 / 2;
+  background: linear-gradient(165deg, var(--paper-deep) 15%, var(--lichen) 135%);
+}
+.give-icon svg { width: 24%; height: auto; }
 .focus-grid figcaption {
   padding: 0.75rem 0.85rem 0.9rem;
   font-family: var(--serif-head); font-size: 1.02rem; font-weight: 500;
