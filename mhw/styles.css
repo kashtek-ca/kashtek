@@ -334,60 +334,66 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   mix-blend-mode: multiply;
 }
 
-/* ---------- home: five-area thumbnail grid ---------- */
+/* ---------- home: five circular icon badges ---------- */
 
 .focus-grid {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: clamp(0.9rem, 1.8vw, 1.4rem);
+  gap: clamp(1rem, 2vw, 1.75rem);
 }
 .focus-grid a {
   display: block; text-decoration: none; color: var(--ink);
-  /* archival mat card, kin to the hero frame */
-  background: #fdfcf7;
+  text-align: center;
+}
+.focus-grid figure { margin: 0; }
+.focus-grid .circle {
+  width: min(9.5rem, 78%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: grid; place-items: center;
+  background:
+    radial-gradient(circle at 32% 26%, #fdfcf7 0%, var(--paper-deep) 62%, var(--lichen) 130%);
   border: 1px solid var(--line);
-  padding: 0.55rem 0.55rem 0;
-  box-shadow: 0 16px 32px -26px rgba(51,54,42,.55);
+  box-shadow:
+    0 18px 30px -24px rgba(51,54,42,.55),
+    inset 0 -6px 14px -10px rgba(77,80,56,.25);
   transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s;
 }
-.focus-grid a:hover { transform: translateY(-4px); box-shadow: 0 22px 38px -26px rgba(51,54,42,.6); }
-.focus-grid figure { margin: 0; }
-.focus-grid img {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+.focus-grid a:hover .circle {
+  transform: translateY(-5px);
+  box-shadow:
+    0 26px 38px -24px rgba(51,54,42,.6),
+    inset 0 -6px 14px -10px rgba(77,80,56,.25);
 }
-
-/* icon tiles — solid pictograms in the logo's visual language */
-.tile-art {
-  display: grid; place-items: center;
-  aspect-ratio: 4 / 5;
-  background: linear-gradient(165deg, var(--paper-deep) 20%, var(--lichen) 130%);
-}
-.tile-art svg { width: 46%; height: auto; }
-.give-icon {
-  display: grid; place-items: center;
-  aspect-ratio: 3 / 2;
-  background: linear-gradient(165deg, var(--paper-deep) 15%, var(--lichen) 135%);
-}
-.give-icon svg { width: 24%; height: auto; }
+.focus-grid .circle svg { width: 44%; height: auto; }
 .focus-grid figcaption {
-  padding: 0.75rem 0.85rem 0.9rem;
-  font-family: var(--serif-head); font-size: 1.02rem; font-weight: 500;
-  display: flex; align-items: baseline; gap: 0.5rem;
+  margin-top: 1rem;
+  font-family: var(--serif-head); font-size: 1.05rem; font-weight: 500;
+  display: flex; align-items: baseline; justify-content: center; gap: 0.5rem;
 }
 .focus-grid .n {
   font-family: var(--sans-label); font-size: 0.66rem; font-weight: 600;
   letter-spacing: 0.1em; color: var(--terracotta);
 }
 @media (max-width: 820px) {
-  .focus-grid { grid-template-columns: repeat(2, 1fr); }
+  .focus-grid { grid-template-columns: repeat(2, 1fr); row-gap: 2rem; }
   .focus-grid li:last-child { grid-column: 1 / -1; }
-  .focus-grid li:last-child img { aspect-ratio: 16 / 7; }
+  .focus-grid .circle { width: min(9.5rem, 60%); }
 }
 @media (max-width: 420px) {
-  .focus-grid { grid-template-columns: 1fr; }
-  .focus-grid img, .focus-grid li:last-child img { aspect-ratio: 16 / 9; }
+  .focus-grid { grid-template-columns: repeat(2, 1fr); }
+  .focus-grid .circle { width: 82%; }
 }
+
+/* grants rows: icon panel variant (kept for reuse) */
+.give-icon {
+  display: grid; place-items: center;
+  aspect-ratio: 3 / 2;
+  background: linear-gradient(165deg, var(--paper-deep) 15%, var(--lichen) 135%);
+}
+.give-icon svg { width: 24%; height: auto; }
 
 /* ---------- grants: editorial alternating rows ---------- */
 
