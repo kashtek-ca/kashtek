@@ -593,6 +593,27 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 }
 .site-footer img { height: 92px; width: auto; opacity: .95; }
 
+/* ---------- copy placeholders (client to supply) ---------- */
+
+.ph {
+  border: 1.5px dashed var(--terracotta);
+  background: color-mix(in srgb, var(--lichen) 38%, transparent);
+  padding: 1.3rem 1.5rem 1.4rem;
+  max-width: var(--measure);
+}
+.ph .ph-tag {
+  display: inline-block;
+  font-family: var(--sans-label); font-size: 0.66rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: #fdfcf7; background: var(--terracotta);
+  padding: 0.3rem 0.7rem;
+  margin-bottom: 0.75rem;
+}
+.ph .ph-desc { font-style: italic; color: var(--ink-soft); font-size: 1rem; line-height: 1.55; }
+.ph.compact { padding: 0.9rem 1.1rem 1rem; }
+.ph.compact .ph-tag { font-size: 0.6rem; padding: 0.22rem 0.55rem; margin-bottom: 0.5rem; }
+.ph.compact .ph-desc { font-size: 0.94rem; }
+
 /* ---------- brand mark motif ---------- */
 
 .mark-divider {
