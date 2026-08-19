@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us — Marvin H. Weiner Foundation</title>
+<meta name="description" content="Contact the Marvin H. Weiner Foundation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html" aria-label="Marvin H. Weiner Foundation — home">
+      <img src="assets/logo-color.png" alt="Marvin H. Weiner Foundation">
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="primary" id="nav" aria-label="Primary">
+      <div class="nav-item">
+        <a class="top" href="who-we-are.html">Who We Are</a>
+        <div class="dropdown">
+          <a href="who-we-are.html#founder">Our Founder</a>
+          <a href="who-we-are.html#leadership">Our Leadership</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="top" href="grants.html">Grants</a>
+        <div class="dropdown">
+          <a href="grants.html#where-we-give">Where We Give</a>
+          <a href="grants.html#eligibility">Eligibility</a>
+        </div>
+      </div>
+      <div class="nav-item active">
+        <a class="top" href="contact.html">Contact Us</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="title-band">
+    <div class="container">
+      <h1 class="rise d1">Contact Us</h1>
+    </div>
+  </section>
+
+  <div class="contact-hero container">
+    <a class="email-big" href="mailto:info@mhweiner.org">info@mhweiner.org</a>
+    <p class="note">Grant applicants: please review our <a href="grants.html#eligibility">eligibility criteria</a> before submitting a proposal.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <img src="assets/logo-white.png" alt="Marvin H. Weiner Foundation">
+    <p class="foot-mission">Provide funding for worthy causes in the areas of healthcare, education, science, social welfare, and the environment.</p>
+    <p><a href="mailto:info@mhweiner.org">info@mhweiner.org</a></p>
+  </div>
+  <p class="foot-meta">© Marvin H. Weiner Foundation, Inc. · A 501(c)(3) private foundation</p>
+</footer>
+
+<script>
+  const btn = document.querySelector(".menu-btn");
+  const nav = document.getElementById("nav");
+  btn.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open);
+  });
+</script>
+<!-- PALETTE-ENGINE:START (testing) -->
+<script>
+(function(){
+  var PALETTES = {
+    original: { label:"Original", vars:{
+      "--paper":"#f6f3ea","--paper-deep":"#efe9da","--ink":"#33362a","--ink-soft":"#5d5f4e",
+      "--stone":"#c9b394","--terracotta":"#c15f34","--terracotta-deep":"#9c4a24",
+      "--slate":"#76909f","--olive":"#4d5038","--lichen":"#eeeabf","--line":"#d8cfba" } },
+    verdant: { label:"Verdant", vars:{
+      "--paper":"#f3f6ee","--paper-deep":"#e6ecda","--ink":"#1f3326","--ink-soft":"#44583f",
+      "--stone":"#cdbf6f","--terracotta":"#d99a1f","--terracotta-deep":"#a56d0e",
+      "--slate":"#2f7fae","--olive":"#1c6044","--lichen":"#eef1b4","--line":"#d0d8bd" } },
+    sunlit: { label:"Sunlit", vars:{
+      "--paper":"#fdf8e6","--paper-deep":"#f7efcc","--ink":"#3b3117","--ink-soft":"#6d5f38",
+      "--stone":"#e2c86a","--terracotta":"#e19a10","--terracotta-deep":"#a86f00",
+      "--slate":"#c39a3e","--olive":"#5f5119","--lichen":"#fbeeae","--line":"#ecdfa9" } },
+    copper: { label:"Copper", vars:{
+      "--paper":"#f4ebe1","--paper-deep":"#ecdfce","--ink":"#33241a","--ink-soft":"#5f4a3a",
+      "--stone":"#cc9a68","--terracotta":"#b25e2c","--terracotta-deep":"#8a4318",
+      "--slate":"#6f8d88","--olive":"#443228","--lichen":"#eeddbe","--line":"#ddccb4" } },
+    horizon: { label:"Horizon", vars:{
+      "--paper":"#f5f1ea","--paper-deep":"#e7e9e6","--ink":"#29323f","--ink-soft":"#566270",
+      "--stone":"#d3b48c","--terracotta":"#dd7a45","--terracotta-deep":"#b95f2c",
+      "--slate":"#6f9bb6","--olive":"#2e3f53","--lichen":"#f4e2c6","--line":"#d6d9d6" } }
+  };
+  var KEY = "mhw-palette";
+  function apply(name){
+    var p = PALETTES[name] || PALETTES.original;
+    for (var k in p.vars) document.documentElement.style.setProperty(k, p.vars[k]);
+    try { localStorage.setItem(KEY, PALETTES[name] ? name : "original"); } catch(e){}
+    var dots = document.querySelectorAll(".pal-dot");
+    for (var i=0;i<dots.length;i++) dots[i].setAttribute("aria-pressed", String(dots[i].dataset.pal===name));
+  }
+  var saved = "original";
+  try { saved = localStorage.getItem(KEY) || "original"; } catch(e){}
+  apply(saved);
+  document.addEventListener("click", function(e){
+    var dot = e.target.closest && e.target.closest(".pal-dot");
+    if (dot) apply(dot.dataset.pal);
+  });
+})();
+</script>
+<!-- PALETTE-ENGINE:END -->
+
+<!-- ANCHOR-FIX:START -->
+<script>
+(function(){
+  // On initial load, scroll-behavior:smooth + async font/image reflow makes the
+  // browser overshoot/miss the hash target. Force an accurate instant landing.
+  function jump(){
+    if(!location.hash) return;
+    var el = document.getElementById(location.hash.slice(1));
+    if(!el) return;
+    var root = document.documentElement;
+    var prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    el.scrollIntoView();
+    root.style.scrollBehavior = prev;
+  }
+  window.addEventListener("load", function(){ setTimeout(jump, 0); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ setTimeout(jump, 0); });
+})();
+</script>
+<!-- ANCHOR-FIX:END -->
+</body>
+</html>

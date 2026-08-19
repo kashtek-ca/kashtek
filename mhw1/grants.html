@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grants — Marvin H. Weiner Foundation</title>
+<meta name="description" content="Where the Marvin H. Weiner Foundation gives, and eligibility for grant applicants.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header hide-until-scroll">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html" aria-label="Marvin H. Weiner Foundation — home">
+      <img src="assets/logo-color.png" alt="Marvin H. Weiner Foundation">
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="primary" id="nav" aria-label="Primary">
+      <div class="nav-item">
+        <a class="top" href="who-we-are.html">Who We Are</a>
+        <div class="dropdown">
+          <a href="who-we-are.html#founder">Our Founder</a>
+          <a href="who-we-are.html#leadership">Our Leadership</a>
+        </div>
+      </div>
+      <div class="nav-item active">
+        <a class="top" href="grants.html">Grants</a>
+        <div class="dropdown">
+          <a href="#where-we-give">Where We Give</a>
+          <a href="#eligibility">Eligibility</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="top" href="contact.html">Contact Us</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- Grants hero: arrows-only carousel; the train slide is scroll-scrubbed
+       (train advances + banner closes upward as you scroll). Progressive
+       enhancement — without JS this renders as a normal static banner. -->
+  <div class="gh-scrollzone" id="ghZone">
+   <div class="gh-sticky">
+    <div class="grants-hero gh-carousel" id="grantsHero" data-slide="0">
+      <!-- cream panel behind the media: the title is uncovered as the video
+           closes upward, so "Grants" appears exactly as the white takes the train -->
+      <div class="gh-reveal">
+        <div class="gh-reveal-inner container">
+          <h1>Grants</h1>
+          <p class="gh-lede">The Foundation supports organizations doing direct, meaningful work for people in need — with particular attention to those least able to help themselves.</p>
+        </div>
+      </div>
+
+      <div class="gh-stage">
+        <figure class="gh-slide is-active" data-kind="video">
+          <video class="gh-media gh-video graded" src="assets/banner/train-scrub.mp4"
+                 poster="assets/banner/train-poster.jpg"
+                 muted playsinline preload="auto" aria-hidden="true"
+                 aria-label="Aerial view of a freight train winding through a misty forest"></video>
+          <canvas class="gh-media gh-canvas graded" aria-label="Aerial view of a freight train winding through a misty forest"></canvas>
+        </figure>
+        <figure class="gh-slide" data-kind="image">
+          <img class="gh-media graded" src="assets/banner/rail-valley.jpg"
+               alt="A railway line curving through forested mountains at golden hour">
+        </figure>
+        <figure class="gh-slide" data-kind="image">
+          <img class="gh-media graded" src="assets/banner/trestle.jpg"
+               alt="A freight train crossing a steel trestle over a forested river gorge">
+        </figure>
+      </div>
+
+      <button class="gh-arrow gh-prev" type="button" aria-label="Previous image">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <button class="gh-arrow gh-next" type="button" aria-label="Next image">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+
+      <div class="gh-dots" aria-hidden="true">
+        <span class="gh-dot is-active"></span>
+        <span class="gh-dot"></span>
+        <span class="gh-dot"></span>
+      </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="page-intro container">
+    <p class="lede">The Foundation supports organizations doing direct, meaningful work for people in need — with particular attention to those least able to help themselves.</p>
+  </div>
+
+  <section id="where-we-give">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Grants</span>
+        <h2>Where We Give</h2>
+      </div>
+      <!-- DRAFT COPY: sector descriptions to be reviewed by the board -->
+      <div class="give-list">
+        <article class="give-row">
+          <div class="give-media grain graded gm-car" data-count="4">
+            <span class="tag">01</span>
+            <img class="gm-slide is-active" src="assets/sectors/options/healthcare-bed.jpg" alt="" data-dir="Bedside comfort">
+            <img class="gm-slide" src="assets/sectors/options/healthcare-wheelchair.jpg" alt="" data-dir="New wheelchair">
+            <img class="gm-slide" src="assets/sectors/options/healthcare-visitor.jpg" alt="" data-dir="At the bedside">
+            <img class="gm-slide" src="assets/sectors/options/healthcare-hands.jpg" alt="" data-dir="Hands · macro">
+            <button type="button" class="gm-arrow gm-prev" aria-label="Previous option">&#8249;</button>
+            <button type="button" class="gm-arrow gm-next" aria-label="Next option">&#8250;</button>
+            <span class="gm-badge"><b class="gm-dir">Bedside comfort</b><span class="gm-idx">1 / 4</span></span>
+          </div>
+          <div class="give-body">
+            <h3>Healthcare</h3>
+            <p>Supporting medical research and organizations that bring care to people who could not otherwise afford it — with an emphasis on direct patient impact.</p>
+          </div>
+        </article>
+        <article class="give-row">
+          <div class="give-media grain graded gm-car" data-count="4">
+            <span class="tag">02</span>
+            <img class="gm-slide is-active" src="assets/sectors/options/education-tutor.jpg" alt="" data-dir="Tutoring">
+            <img class="gm-slide" src="assets/sectors/options/education-playground.jpg" alt="" data-dir="Playground">
+            <img class="gm-slide" src="assets/sectors/options/education-reading.jpg" alt="" data-dir="Story time">
+            <img class="gm-slide" src="assets/sectors/options/education-b.jpg" alt="" data-dir="Writing · macro">
+            <button type="button" class="gm-arrow gm-prev" aria-label="Previous option">&#8249;</button>
+            <button type="button" class="gm-arrow gm-next" aria-label="Next option">&#8250;</button>
+            <span class="gm-badge"><b class="gm-dir">Tutoring</b><span class="gm-idx">1 / 4</span></span>
+          </div>
+          <div class="give-body">
+            <h3>Education</h3>
+            <p>Funding programs that open educational doors for students of every age and circumstance, from early learning through higher education.</p>
+          </div>
+        </article>
+        <article class="give-row">
+          <div class="give-media grain graded gm-car" data-count="5">
+            <span class="tag">03</span>
+            <img class="gm-slide is-active" src="assets/sectors/options/science-a.jpg" alt="" data-dir="At the microscope">
+            <img class="gm-slide" src="assets/sectors/options/science-labcoats.jpg" alt="" data-dir="R&amp;D lab">
+            <img class="gm-slide" src="assets/sectors/options/science-pipette.jpg" alt="" data-dir="In the lab">
+            <img class="gm-slide" src="assets/sectors/options/science-molecule.jpg" alt="" data-dir="Molecule">
+            <img class="gm-slide" src="assets/sectors/options/science-glass.jpg" alt="" data-dir="Glassware · macro">
+            <button type="button" class="gm-arrow gm-prev" aria-label="Previous option">&#8249;</button>
+            <button type="button" class="gm-arrow gm-next" aria-label="Next option">&#8250;</button>
+            <span class="gm-badge"><b class="gm-dir">At the microscope</b><span class="gm-idx">1 / 5</span></span>
+          </div>
+          <div class="give-body">
+            <h3>Science</h3>
+            <p>Backing scientific inquiry and innovation in the spirit of the Foundation's founder — an inventor who believed better solutions could always be built.</p>
+          </div>
+        </article>
+        <article class="give-row">
+          <div class="give-media grain graded gm-car" data-count="4">
+            <span class="tag">04</span>
+            <img class="gm-slide is-active" src="assets/sectors/options/welfare-wheelchair.jpg" alt="" data-dir="Wheelchair smile">
+            <img class="gm-slide" src="assets/sectors/options/welfare-meal.jpg" alt="" data-dir="Community meal">
+            <img class="gm-slide" src="assets/sectors/options/welfare-companion.jpg" alt="" data-dir="Companionship">
+            <img class="gm-slide" src="assets/sectors/options/welfare-community.jpg" alt="" data-dir="Community">
+            <button type="button" class="gm-arrow gm-prev" aria-label="Previous option">&#8249;</button>
+            <button type="button" class="gm-arrow gm-next" aria-label="Next option">&#8250;</button>
+            <span class="gm-badge"><b class="gm-dir">Wheelchair smile</b><span class="gm-idx">1 / 4</span></span>
+          </div>
+          <div class="give-body">
+            <h3>Social Welfare</h3>
+            <p>Helping organizations that meet essential human needs — food, shelter, safety, and dignity — for individuals and families facing hardship.</p>
+          </div>
+        </article>
+        <article class="give-row">
+          <div class="give-media grain graded gm-car" data-count="5">
+            <span class="tag">05</span>
+            <img class="gm-slide is-active" src="assets/sectors/options/environment-a.jpg" alt="" data-dir="Planting">
+            <img class="gm-slide" src="assets/sectors/options/environment-b.jpg" alt="" data-dir="Seedling · macro">
+            <img class="gm-slide" src="assets/sectors/options/environment-tree.jpg" alt="" data-dir="Tree in a field">
+            <img class="gm-slide" src="assets/sectors/options/environment-rings.jpg" alt="" data-dir="Stump rings">
+            <img class="gm-slide" src="assets/sectors/options/environment-canopy.jpg" alt="" data-dir="Forest canopy">
+            <button type="button" class="gm-arrow gm-prev" aria-label="Previous option">&#8249;</button>
+            <button type="button" class="gm-arrow gm-next" aria-label="Next option">&#8250;</button>
+            <span class="gm-badge"><b class="gm-dir">Planting</b><span class="gm-idx">1 / 5</span></span>
+          </div>
+          <div class="give-body">
+            <h3>The Environment</h3>
+            <p>Contributing to the protection and stewardship of the natural world for the generations to come.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="eligibility" class="band">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Grants</span>
+        <h2>Eligibility</h2>
+        <p class="lede">The Foundation reviews a limited number of proposals each year. Please confirm that your organization meets the following criteria before submitting:</p>
+      </div>
+
+      <ul class="criteria">
+        <li><strong>Tax-Exempt Status.</strong> Your organization is recognized by the IRS as a 501(c)(3) or 501(c)(19) in good standing.</li>
+        <li><strong>Area of Focus.</strong> Your proposed project aligns with one of the Foundation's five funding areas: healthcare, education, science, social welfare, or the environment.</li>
+        <li><strong>Direct Impact.</strong> The requested funding will support programs and services with direct, demonstrable benefit to the people you serve.</li>
+        <li><strong>Fiscal Responsibility.</strong> Your organization has (i) audited or reviewed independent financial statements or (ii) internally generated annual financial statements, the accuracy to which your comptroller or CFO will attest.</li>
+        <li><strong>Tax Returns.</strong> Your organization is current on its federal tax return filings.</li>
+      </ul>
+
+      <p class="exclude-lead">The Foundation's guidelines exclude the following:</p>
+      <ul class="criteria">
+        <li>Places of worship and religious facilities, unless the proposed grant is earmarked for childhood education programs.</li>
+        <li>Political organizations, including campaigns, political action committees (PACs), and lobbying groups.</li>
+        <li>Think tanks.</li>
+        <li>Individuals or individual proprietorships.</li>
+        <li>Arts and culture programs, unless the proposed grant is earmarked for a project that has a clear educational component.</li>
+      </ul>
+
+      <div class="apply-card">
+        <p>If you meet the above requirements and would like to submit a grant request, please submit a formal proposal to info@mhweiner.org.</p>
+        <a class="email" href="mailto:info@mhweiner.org?subject=Grant%20Proposal">Submit a proposal — info@mhweiner.org</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <img src="assets/logo-white.png" alt="Marvin H. Weiner Foundation">
+    <p class="foot-mission">Provide funding for worthy causes in the areas of healthcare, education, science, social welfare, and the environment.</p>
+    <p><a href="mailto:info@mhweiner.org">info@mhweiner.org</a></p>
+  </div>
+  <p class="foot-meta">© Marvin H. Weiner Foundation, Inc. · A 501(c)(3) private foundation</p>
+</footer>
+
+<script>
+  const btn = document.querySelector(".menu-btn");
+  const nav = document.getElementById("nav");
+  btn.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open);
+  });
+</script>
+<!-- GRANTS-HERO:START — arrows-only carousel + scroll-scrubbed train -->
+<script>
+(function(){
+  var root = document.documentElement;
+  root.classList.add("js");
+
+  var zone = document.getElementById("ghZone");
+  var hero = document.getElementById("grantsHero");
+  if (!zone || !hero) return;
+
+  var sticky = zone.querySelector(".gh-sticky");
+  var slides = Array.prototype.slice.call(hero.querySelectorAll(".gh-slide"));
+  var dots   = Array.prototype.slice.call(hero.querySelectorAll(".gh-dot"));
+  var video  = hero.querySelector("video.gh-media");
+  var canvas = hero.querySelector("canvas.gh-canvas");
+  var cctx   = canvas ? canvas.getContext("2d") : null;
+  var header = document.querySelector(".site-header.hide-until-scroll");
+  var idx = 0, vidDur = 5;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Draw the current decoded video frame onto the canvas. Relying on the
+  // <video> element to repaint seeked frames is unreliable across browsers —
+  // it frequently keeps showing the poster, so a locked-camera clip looks
+  // frozen. Drawing to a canvas always shows the true current frame, so the
+  // scroll-scrub works everywhere.
+  function drawFrame(){
+    if (!cctx || !video || video.readyState < 2) return;
+    var vw = video.videoWidth, vh = video.videoHeight;
+    if (!vw || !vh) return;
+    if (canvas.width !== vw || canvas.height !== vh) { canvas.width = vw; canvas.height = vh; }
+    try { cctx.drawImage(video, 0, 0, vw, vh); } catch(e){}
+  }
+
+  if (video) {
+    try { video.muted = true; video.playsInline = true; } catch(e){}
+    video.addEventListener("loadedmetadata", function(){
+      if (video.duration && isFinite(video.duration)) vidDur = video.duration;
+      seek(progress()); drawFrame(); onScroll();
+    });
+    // Canvas rendering: once frames are decoded, seeking + drawing the frame is
+    // enough — no play/pause priming (that raced with the scrub and reset time).
+    video.addEventListener("loadeddata", function(){ seek(progress()); drawFrame(); onScroll(); }, { once: true });
+    video.addEventListener("seeked", drawFrame);   // paint the frame each seek completes
+    video.addEventListener("canplay", drawFrame);
+    try { video.load(); } catch(e){}
+  }
+
+  function clamp01(x){ return x < 0 ? 0 : (x > 1 ? 1 : x); }
+  function smooth(x){ return x*x*(3 - 2*x); }
+
+  function progress(){
+    if (reduce) return 0;
+    var travel = zone.offsetHeight - sticky.offsetHeight;
+    if (travel <= 0) return 0;
+    return clamp01(-zone.getBoundingClientRect().top / travel);
+  }
+
+  function seek(p){
+    if (!video || reduce || video.readyState < 1 || !isFinite(vidDur)) return;
+    var t = p * (vidDur - 0.05);
+    if (Math.abs(video.currentTime - t) > 0.01) { try { video.currentTime = t; } catch(e){} }
+  }
+
+  function activeIsVideo(){ return slides[idx] && slides[idx].getAttribute("data-kind") === "video"; }
+
+  function setSlide(n){
+    idx = (n + slides.length) % slides.length;
+    for (var i=0;i<slides.length;i++) slides[i].classList.toggle("is-active", i===idx);
+    for (var j=0;j<dots.length;j++) dots[j].classList.toggle("is-active", j===idx);
+    if (activeIsVideo()) seek(progress());
+  }
+
+  // Run synchronously on scroll (no requestAnimationFrame). rAF gets throttled
+  // when the tab isn't focused, which would freeze the scrub even though the
+  // page is being scrolled. The work here is cheap (one seek, one canvas draw,
+  // a few CSS vars), so doing it inline is safe and always fires.
+  function onScroll(){
+    var p = progress();
+    if (activeIsVideo()) { seek(p); drawFrame(); }
+    // the white closes over the train, and the title rides in on that same cream
+    var close = smooth(clamp01((p - 0.5) / 0.42));
+    hero.style.setProperty("--gh-close", close.toFixed(3));
+    // title is white over the train, then turns ink as the cream reaches it
+    hero.style.setProperty("--gh-ink", Math.round(smooth(clamp01((close - 0.42) / 0.32)) * 100));
+    // the intro line fades in right below the title as it finishes turning black
+    hero.style.setProperty("--gh-sub", smooth(clamp01((close - 0.6) / 0.3)).toFixed(3));
+    hero.style.setProperty("--gh-chrome", (1 - clamp01((p - 0.3) / 0.3)).toFixed(3));
+    // reveal the top menu bar once the train has been scrolled past
+    if (header) header.classList.toggle("revealed", p > 0.9);
+  }
+
+  hero.querySelector(".gh-next").addEventListener("click", function(){ setSlide(idx + 1); });
+  hero.querySelector(".gh-prev").addEventListener("click", function(){ setSlide(idx - 1); });
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  setSlide(0);
+  onScroll();
+})();
+</script>
+<!-- GRANTS-HERO:END -->
+<!-- PALETTE-ENGINE:START (testing) -->
+<script>
+(function(){
+  var PALETTES = {
+    original: { label:"Original", vars:{
+      "--paper":"#f6f3ea","--paper-deep":"#efe9da","--ink":"#33362a","--ink-soft":"#5d5f4e",
+      "--stone":"#c9b394","--terracotta":"#c15f34","--terracotta-deep":"#9c4a24",
+      "--slate":"#76909f","--olive":"#4d5038","--lichen":"#eeeabf","--line":"#d8cfba" } },
+    verdant: { label:"Verdant", vars:{
+      "--paper":"#f3f6ee","--paper-deep":"#e6ecda","--ink":"#1f3326","--ink-soft":"#44583f",
+      "--stone":"#cdbf6f","--terracotta":"#d99a1f","--terracotta-deep":"#a56d0e",
+      "--slate":"#2f7fae","--olive":"#1c6044","--lichen":"#eef1b4","--line":"#d0d8bd" } },
+    sunlit: { label:"Sunlit", vars:{
+      "--paper":"#fdf8e6","--paper-deep":"#f7efcc","--ink":"#3b3117","--ink-soft":"#6d5f38",
+      "--stone":"#e2c86a","--terracotta":"#e19a10","--terracotta-deep":"#a86f00",
+      "--slate":"#c39a3e","--olive":"#5f5119","--lichen":"#fbeeae","--line":"#ecdfa9" } },
+    copper: { label:"Copper", vars:{
+      "--paper":"#f4ebe1","--paper-deep":"#ecdfce","--ink":"#33241a","--ink-soft":"#5f4a3a",
+      "--stone":"#cc9a68","--terracotta":"#b25e2c","--terracotta-deep":"#8a4318",
+      "--slate":"#6f8d88","--olive":"#443228","--lichen":"#eeddbe","--line":"#ddccb4" } },
+    horizon: { label:"Horizon", vars:{
+      "--paper":"#f5f1ea","--paper-deep":"#e7e9e6","--ink":"#29323f","--ink-soft":"#566270",
+      "--stone":"#d3b48c","--terracotta":"#dd7a45","--terracotta-deep":"#b95f2c",
+      "--slate":"#6f9bb6","--olive":"#2e3f53","--lichen":"#f4e2c6","--line":"#d6d9d6" } }
+  };
+  var KEY = "mhw-palette";
+  function apply(name){
+    var p = PALETTES[name] || PALETTES.original;
+    for (var k in p.vars) document.documentElement.style.setProperty(k, p.vars[k]);
+    try { localStorage.setItem(KEY, PALETTES[name] ? name : "original"); } catch(e){}
+    var dots = document.querySelectorAll(".pal-dot");
+    for (var i=0;i<dots.length;i++) dots[i].setAttribute("aria-pressed", String(dots[i].dataset.pal===name));
+  }
+  var saved = "original";
+  try { saved = localStorage.getItem(KEY) || "original"; } catch(e){}
+  apply(saved);
+  document.addEventListener("click", function(e){
+    var dot = e.target.closest && e.target.closest(".pal-dot");
+    if (dot) apply(dot.dataset.pal);
+  });
+})();
+</script>
+<!-- PALETTE-ENGINE:END -->
+
+<!-- ANCHOR-FIX:START -->
+<script>
+(function(){
+  // On initial load, scroll-behavior:smooth + async font/image reflow makes the
+  // browser overshoot/miss the hash target. Force an accurate instant landing.
+  function jump(){
+    if(!location.hash) return;
+    var el = document.getElementById(location.hash.slice(1));
+    if(!el) return;
+    var root = document.documentElement;
+    var prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    el.scrollIntoView();
+    root.style.scrollBehavior = prev;
+  }
+  window.addEventListener("load", function(){ setTimeout(jump, 0); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ setTimeout(jump, 0); });
+})();
+</script>
+<!-- ANCHOR-FIX:END -->
+
+<!-- GIVE-CAROUSEL:START — image option switcher for the board's choosing phase -->
+<script>
+(function(){
+  document.querySelectorAll(".gm-car").forEach(function(car){
+    var slides = Array.prototype.slice.call(car.querySelectorAll(".gm-slide"));
+    if (slides.length < 2) return;
+    var dirEl = car.querySelector(".gm-dir");
+    var idxEl = car.querySelector(".gm-idx");
+    var i = 0;
+    function show(n){
+      i = (n + slides.length) % slides.length;
+      slides.forEach(function(s, k){ s.classList.toggle("is-active", k === i); });
+      if (dirEl) dirEl.textContent = slides[i].dataset.dir || "";
+      if (idxEl) idxEl.textContent = (i + 1) + " / " + slides.length;
+    }
+    car.querySelector(".gm-prev").addEventListener("click", function(){ show(i - 1); });
+    car.querySelector(".gm-next").addEventListener("click", function(){ show(i + 1); });
+    show(0);
+  });
+})();
+</script>
+<!-- GIVE-CAROUSEL:END -->
+</body>
+</html>
