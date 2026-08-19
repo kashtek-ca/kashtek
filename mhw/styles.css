@@ -520,6 +520,14 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 }
 .criteria li strong { color: var(--ink); font-weight: 600; }
 
+.exclude-lead {
+  max-width: var(--measure);
+  margin-top: clamp(2.25rem, 4vw, 3.25rem);
+  font-family: var(--serif-head);
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+
 .apply-card {
   margin-top: clamp(2rem, 5vw, 3rem);
   background: var(--lichen);
