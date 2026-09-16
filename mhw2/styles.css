@@ -279,7 +279,7 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   content: ""; position: absolute; z-index: 0;
   right: -5rem; top: 50%; transform: translateY(-50%);
   width: 30rem; height: 22rem;
-  background: url("assets/mark-white.png") no-repeat center / contain;
+  background: url("../mhw/assets/mark-white.png") no-repeat center / contain;
   opacity: 0.06;
 }
 .quote-band .container { max-width: 54rem; position: relative; z-index: 1; }
@@ -920,6 +920,50 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   .op-arrow { width: 2.2rem; height: 2.2rem; font-size: 1.25rem; }
 }
 
+
+/* ── Opening lockup (mhw1 variant) ──────────────────────────────────────────
+   The mark with the quote set beneath it, as one unit. Two stacked copies —
+   paper over the photograph, ink over the cream — clipped against each other
+   at the rising edge so the whole lockup resolves as the edge passes it. */
+.op-lockup { position: relative; z-index: 3; width: min(560px, 82vw); text-align: center; }
+.op-lockup .lk { display: block; }
+.op-lockup .lk-color { position: absolute; inset: 0; opacity: 0; }
+.op-lockup img { display: block; width: min(420px, 62vw); height: auto; margin: 0 auto; }
+.op-rule {
+  width: 4.5rem; height: 2px; margin: clamp(1.4rem, 3vw, 2.1rem) auto;
+  background: var(--logo-orange);
+}
+.op-quote {
+  font-family: var(--serif-head); font-style: italic; font-weight: 400;
+  font-size: clamp(1.05rem, 1.9vw, 1.45rem);
+  line-height: 1.45; letter-spacing: .005em;
+  margin: 0; text-wrap: balance;
+}
+.lk-paper .op-quote { color: var(--paper); }
+.lk-color .op-quote { color: var(--ink); }
+
+.op-zone[data-slide="2"] .op-lockup .lk { transition: none; }
+.op-zone[data-slide="2"] .op-lockup .lk-paper {
+  clip-path: inset(0 0 calc((1 - var(--oplogo, 1)) * 100%) 0);
+}
+.op-zone[data-slide="2"] .op-lockup .lk-color {
+  opacity: 1;
+  clip-path: inset(calc(var(--oplogo, 1) * 100%) 0 0 0);
+}
+
+/* the statement that replaces the quote in the first section */
+.hero-statement {
+  font-family: var(--serif-head);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3.2vw, 3rem);
+  line-height: 1.18;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: balance;
+}
+
 .mark-divider {
   display: flex; justify-content: center;
   padding-block: clamp(0.5rem, 2vw, 1.5rem);
@@ -956,7 +1000,7 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   content: ""; position: absolute; z-index: 0;
   right: -5rem; top: 50%; transform: translateY(-50%);
   width: 30rem; height: 22rem;
-  background: url("assets/mark-white.png") no-repeat center / contain;
+  background: url("../mhw/assets/mark-white.png") no-repeat center / contain;
   opacity: 0.07;
 }
 .title-band .container { position: relative; z-index: 1; }
@@ -1030,7 +1074,7 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 /* faint five-figures watermark behind the mark */
 .splash::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
-  background: url("assets/mark-white.png") no-repeat center 44% / min(38rem, 68%);
+  background: url("../mhw/assets/mark-white.png") no-repeat center 44% / min(38rem, 68%);
   opacity: 0.055;
 }
 .splash-logo {

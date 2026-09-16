@@ -23,8 +23,8 @@
       <div class="nav-item active">
         <a class="top" href="who-we-are.html">Who We Are</a>
         <div class="dropdown">
-          <a href="#leadership">Our Leadership</a>
           <a href="#founder">Our Founder</a>
+          <a href="#leadership">Our Leadership</a>
         </div>
       </div>
       <div class="nav-item">
@@ -43,39 +43,13 @@
 
 <main>
 
-  <div class="page-intro container">
-    <span class="eyebrow rise">The Marvin H. Weiner Foundation</span>
-    <h1 class="rise d1">Who We Are</h1>
-  </div>
-
-  <section id="leadership">
+  <section class="title-band">
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Who We Are</span>
-        <h2>Our Leadership</h2>
-      </div>
-      <ul class="leaders">
-        <li>
-          <p class="name">Jacqueline Bernstein</p>
-          <p class="role">President</p>
-        </li>
-        <li>
-          <p class="name">Wendy Goldman</p>
-          <p class="role">Vice President</p>
-        </li>
-        <li>
-          <p class="name">Richard M. Kremen</p>
-          <p class="role">Trustee</p>
-        </li>
-        <li>
-          <p class="name">Thomas Lindley</p>
-          <p class="role">Trustee</p>
-        </li>
-      </ul>
+      <h1 class="rise d1">Who We Are</h1>
     </div>
   </section>
 
-  <section id="founder" class="band">
+  <section id="founder">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Our Founder</span>
@@ -111,6 +85,32 @@
     </div>
   </section>
 
+  <section id="leadership" class="band">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our Leadership</h2>
+      </div>
+      <ul class="leaders">
+        <li>
+          <p class="name">Jacqueline Bernstein</p>
+          <p class="role">President</p>
+        </li>
+        <li>
+          <p class="name">Wendy Goldman</p>
+          <p class="role">Vice President</p>
+        </li>
+        <li>
+          <p class="name">Richard M. Kremen</p>
+          <p class="role">Trustee</p>
+        </li>
+        <li>
+          <p class="name">Thomas Lindley</p>
+          <p class="role">Trustee</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -130,5 +130,26 @@
     btn.setAttribute("aria-expanded", open);
   });
 </script>
+
+<!-- ANCHOR-FIX:START -->
+<script>
+(function(){
+  // On initial load, scroll-behavior:smooth + async font/image reflow makes the
+  // browser overshoot/miss the hash target. Force an accurate instant landing.
+  function jump(){
+    if(!location.hash) return;
+    var el = document.getElementById(location.hash.slice(1));
+    if(!el) return;
+    var root = document.documentElement;
+    var prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    el.scrollIntoView();
+    root.style.scrollBehavior = prev;
+  }
+  window.addEventListener("load", function(){ setTimeout(jump, 0); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ setTimeout(jump, 0); });
+})();
+</script>
+<!-- ANCHOR-FIX:END -->
 </body>
 </html>

@@ -6,17 +6,23 @@
    ============================================================ */
 
 :root {
-  --paper:      #f6f3ea;   /* warm cream ground            */
-  --paper-deep: #efe9da;   /* darker cream for alt bands   */
-  --ink:        #33362a;   /* deep olive charcoal (≠black) */
-  --ink-soft:   #5d5f4e;   /* muted body ink               */
-  --stone:      #c9b394;   /* sunlit wall                  */
-  --terracotta: #b06a42;   /* rooftops / logo orange, deepened */
-  --terracotta-deep: #96552f;
-  --slate:      #76909f;   /* sky-shadow blue              */
-  --olive:      #4d5038;   /* vineyard green               */
-  --lichen:     #eeeabf;   /* pale yellow-green wash       */
-  --line:       #d8cfba;   /* hairline rules               */
+  --paper:      #f4ebe1;   /* warm cream ground            */
+  --paper-deep: #ecdfce;   /* darker cream for alt bands   */
+  --ink:        #33241a;   /* deep olive charcoal (≠black) */
+  --ink-soft:   #5f4a3a;   /* muted body ink               */
+  --stone:      #cc9a68;   /* sunlit wall                  */
+  --terracotta: #b25e2c;   /* rooftops / logo orange, deepened */
+  --terracotta-deep: #8a4318;
+  --slate:      #6f8d88;   /* sky-shadow blue              */
+  --olive:      #443228;   /* vineyard green               */
+  --lichen:     #eeddbe;   /* pale yellow-green wash       */
+  --line:       #ddccb4;   /* hairline rules               */
+  --logo-orange: #ff8b00;  /* the logo's true orange — the one fixed brand colour */
+  --mark:       #ff8b00;   /* hero "obligation to share it" accent            */
+  --mark-img-filter: brightness(0);  /* figures mark below the family photo   */
+  /* Small dark blocks read heavier than the same colour as a large field, so the
+     buttons take a slightly lifted brown to match the banners perceptually. */
+  --olive-lift: #524137;
 
   --serif-display: "Libre Caslon Display", "Libre Caslon Text", Georgia, serif;
   --serif-head:    "Libre Caslon Text", Georgia, serif;
@@ -30,6 +36,9 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
+
+/* Anchored sections clear the sticky header when jumped to */
+:where(#hero, #leadership, #founder, #where-we-give, #eligibility) { scroll-margin-top: 8.5rem; }
 
 body {
   background: var(--paper);
@@ -200,7 +209,7 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   margin: 0;
   text-wrap: balance;
 }
-.hero blockquote .mark { color: var(--terracotta); }
+.hero blockquote .mark { color: var(--mark, var(--terracotta)); }
 .hero cite {
   display: block;
   margin-top: 1.6rem;
@@ -227,7 +236,7 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 .hero-figure .frame {
   position: relative;
   background: #fdfcf7;
-  padding: 0.85rem 0.85rem 0;
+  padding: 0.85rem;
   border: 1px solid var(--line);
   box-shadow: 0 30px 60px -34px rgba(51,54,42,.55);
   transform: rotate(1.15deg);
@@ -353,21 +362,35 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   border-radius: 50%;
   margin: 0 auto;
   display: grid; place-items: center;
-  background:
-    radial-gradient(circle at 32% 26%, #fdfcf7 0%, var(--paper-deep) 62%, var(--lichen) 130%);
-  border: 1px solid var(--line);
+  background: var(--badge, var(--olive));
+  background-image:
+    radial-gradient(circle at 34% 28%, rgba(255,255,255,.20), rgba(0,0,0,.06) 78%);
   box-shadow:
-    0 18px 30px -24px rgba(51,54,42,.55),
-    inset 0 -6px 14px -10px rgba(77,80,56,.25);
+    0 18px 30px -22px rgba(51,54,42,.55),
+    inset 0 -8px 16px -12px rgba(0,0,0,.34);
   transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s;
 }
 .focus-grid a:hover .circle {
   transform: translateY(-5px);
   box-shadow:
-    0 26px 38px -24px rgba(51,54,42,.6),
-    inset 0 -6px 14px -10px rgba(77,80,56,.25);
+    0 26px 38px -22px rgba(51,54,42,.6),
+    inset 0 -8px 16px -12px rgba(0,0,0,.34);
 }
-.focus-grid .circle svg { width: 44%; height: auto; }
+.focus-grid .circle svg {
+  width: 46%; height: auto;
+  fill: none;
+  stroke: #f7f3e8;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.focus-grid .circle svg .fill { fill: #f7f3e8; stroke: none; }
+/* per-sector badge colours (reference palette) */
+.focus-grid .c-health  { --badge: #bf514a; }
+.focus-grid .c-edu     { --badge: #34708d; }
+.focus-grid .c-sci     { --badge: #755a9e; }
+.focus-grid .c-welfare { --badge: #9c546c; }
+.focus-grid .c-env     { --badge: #2f794a; }
 .focus-grid figcaption {
   margin-top: 1rem;
   font-family: var(--serif-head); font-size: 1.05rem; font-weight: 500;
@@ -375,7 +398,7 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 }
 .focus-grid .n {
   font-family: var(--sans-label); font-size: 0.66rem; font-weight: 600;
-  letter-spacing: 0.1em; color: var(--terracotta);
+  letter-spacing: 0.1em; color: var(--logo-orange);
 }
 @media (max-width: 820px) {
   .focus-grid { grid-template-columns: repeat(2, 1fr); row-gap: 2rem; }
@@ -419,9 +442,36 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 .give-media .tag {
   position: absolute; top: -0.85rem; left: -0.85rem; z-index: 1;
   background: var(--olive); border: 1px solid var(--olive);
-  font-family: var(--serif-head); font-size: 1.1rem; color: var(--lichen);
+  font-family: var(--serif-head); font-size: 1.15rem; color: var(--logo-orange);
   padding: 0.35rem 0.85rem; font-variant-numeric: tabular-nums;
 }
+
+/* Number-box option chooser — sits on row 01, restyles every tag on the page.
+   Review aid only; drop the .tag-chooser block once the board picks one. */
+.give-list[data-tagstyle="orange"]     .give-media .tag { color: var(--logo-orange); }
+.give-list[data-tagstyle="white"]      .give-media .tag { color: #fff; }
+.give-list[data-tagstyle="background"] .give-media .tag { color: var(--paper); }
+
+.tag-chooser {
+  position: absolute; z-index: 4;
+  top: -0.85rem; left: 3.6rem;
+  display: inline-flex; align-items: center; gap: 0.15rem;
+  background: rgba(51,40,32,.86); color: #f4ebe1;
+  padding: 0.16rem 0.2rem;
+  font-family: var(--sans-label); font-size: 0.62rem; letter-spacing: .1em;
+  text-transform: uppercase; backdrop-filter: blur(2px);
+}
+.tag-chooser button {
+  appearance: none; border: 0; background: none; cursor: pointer;
+  color: inherit; font-size: 0.95rem; line-height: 1;
+  padding: 0.1rem 0.35rem;
+}
+.tag-chooser button:hover { color: var(--logo-orange); }
+.tag-chooser .tc-name { padding: 0 0.3rem; min-width: 8.5ch; text-align: center; }
+@media (max-width: 720px) {
+  .tag-chooser { left: 3rem; font-size: 0.56rem; }
+}
+
 .give-body h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 0.6rem; }
 .give-body p { color: var(--ink-soft); max-width: 46ch; }
 @media (max-width: 720px) {
@@ -430,30 +480,176 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   .give-media .tag { top: -0.6rem; left: -0.4rem; }
 }
 
-/* ---------- grants intro atmospheric banner ---------- */
+/* ---------- give-media option carousel (board choosing phase) ---------- */
+.gm-car { --gm-inset: 0.75rem; }
+.gm-car .gm-slide {
+  width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+  display: none;
+}
+.gm-car .gm-slide.is-active { display: block; }
+.gm-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+  width: 2.4rem; height: 2.4rem; display: grid; place-items: center;
+  border: 1px solid var(--line);
+  background: rgba(253,252,247,.86); color: var(--ink);
+  font-family: var(--serif-head); font-size: 1.5rem; line-height: 1;
+  cursor: pointer; border-radius: 50%;
+  box-shadow: 0 6px 16px -8px rgba(51,54,42,.6);
+  transition: background .15s ease, transform .15s ease;
+}
+.gm-arrow:hover { background: var(--paper-deep, #fdfcf7); }
+.gm-arrow:active { transform: translateY(-50%) scale(.94); }
+.gm-prev { left: calc(var(--gm-inset) + 0.4rem); }
+.gm-next { right: calc(var(--gm-inset) + 0.4rem); }
+.gm-badge {
+  position: absolute; z-index: 3;
+  bottom: calc(var(--gm-inset) + 0.4rem); left: calc(var(--gm-inset) + 0.4rem);
+  display: inline-flex; align-items: baseline; gap: 0.5rem;
+  background: rgba(51,54,42,.82); color: var(--lichen, #eeeabf);
+  padding: 0.3rem 0.7rem; font-size: 0.78rem; letter-spacing: .02em;
+  backdrop-filter: blur(2px);
+}
+.gm-badge .gm-dir { font-weight: 600; }
+.gm-badge .gm-idx { opacity: .7; font-variant-numeric: tabular-nums; }
+@media (max-width: 720px) {
+  .gm-arrow { width: 2.1rem; height: 2.1rem; font-size: 1.3rem; }
+}
+
+/* ---------- grants hero: scroll-scrubbed carousel ----------
+   Tunables (set on .gh-scrollzone): --gh-zone (total scroll height, vh)
+   drives how much travel the train scrub gets. Sticky pane is one viewport;
+   scrub travel = zone - viewport. Arrows switch slides; the video slide
+   scrubs to scroll and the whole frame "closes upward" near the end. */
+
+.gh-scrollzone { position: relative; }
+.gh-sticky { position: relative; }
 
 .grants-hero {
-  position: relative; isolation: isolate;
-  min-height: clamp(16rem, 34vw, 24rem);
-  display: flex; align-items: flex-end;
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: clamp(18rem, 42vw, 30rem);
+  display: flex; flex-direction: column; justify-content: flex-end;
   border-bottom: 1px solid var(--line);
+  background: var(--paper);         /* shows through as the frame closes upward */
 }
-.grants-hero img {
-  position: absolute; inset: 0; z-index: -2;
-  width: 100%; height: 100%; object-fit: cover;
+
+/* stacked media stage — clipped upward via --gh-close */
+.gh-stage {
+  position: absolute; inset: 0; z-index: 0;
+  clip-path: inset(0 0 calc(var(--gh-close, 0) * 100%) 0);
 }
-.grants-hero::after {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(to top, rgba(51,54,42,.62), rgba(51,54,42,.12) 60%, rgba(51,54,42,.28));
+.gh-stage::after {                  /* legibility gradient, clips with the media */
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(to top, rgba(51,54,42,.66), rgba(51,54,42,.10) 55%, rgba(51,54,42,.32));
 }
-.grants-hero .gh-inner {
-  max-width: 72rem; margin-inline: auto; width: 100%;
-  padding: clamp(2rem, 5vw, 3.5rem) var(--pad);
-  color: #f3f1e4;
+.gh-slide {
+  position: absolute; inset: 0; margin: 0; z-index: 0;
+  opacity: 0; visibility: hidden;
+  transition: opacity .6s ease, visibility .6s;
 }
-.grants-hero .eyebrow { color: var(--lichen); }
-.grants-hero .eyebrow::before { background: var(--lichen); }
-.grants-hero h1 { color: #fff; font-size: clamp(2.2rem, 5vw, 3.4rem); margin-top: 0.9rem; }
+.gh-slide:first-child { opacity: 1; visibility: visible; }         /* no-JS fallback */
+.js .gh-slide { opacity: 0; visibility: hidden; }
+.js .gh-slide.is-active { opacity: 1; visibility: visible; }
+.gh-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* canvas paints the scrubbed frame over the video (which stays as decode source
+   + poster fallback until the first frame is drawn) */
+.gh-canvas { z-index: 1; }
+
+/* page title overlay — always visible, centered above the media.
+   It reads WHITE over the train, then turns ink as the cream closes over it
+   (--gh-ink goes 0 → 100). The stage's clip reveals the cream hero background. */
+.gh-reveal {
+  position: absolute; inset: 0; z-index: 4; pointer-events: none;
+  display: flex; flex-direction: column; justify-content: center;
+  text-align: center;
+}
+.gh-reveal-inner { padding-block: clamp(2rem, 5vw, 3.5rem); }
+.gh-reveal-inner h1 {
+  font-family: var(--serif-display); letter-spacing: -0.005em;
+  font-size: clamp(2.6rem, 6.5vw, 4.4rem);
+  color: color-mix(in srgb, var(--ink) calc(var(--gh-ink, 0) * 1%), #ffffff);
+  text-shadow: 0 2px 22px rgba(20, 22, 15, calc((1 - var(--gh-ink, 0) / 100) * 0.55));
+}
+/* home hero: the logo reveal. White mark over the train crossfades to the
+   full-color mark as the cream closes over it (--gh-ink 0 → 100). */
+.gh-logo {
+  position: relative; display: inline-block;
+  width: min(520px, 74vw);
+  filter: drop-shadow(0 10px 34px rgba(20, 22, 15, calc((1 - var(--gh-ink, 0) / 100) * 0.4)));
+}
+.gh-logo img { display: block; width: 100%; height: auto; }
+.gh-logo-color { position: absolute; inset: 0; opacity: calc(var(--gh-ink, 0) / 100); }
+.gh-logo-white { opacity: calc(1 - var(--gh-ink, 0) / 100); }
+/* intro line lives inside the reveal card so it appears directly under the
+   title the moment it turns black — only when the scroll effect is running */
+.gh-lede { display: none; }
+.js .gh-lede {
+  display: block;
+  margin: 1.1rem auto 0; max-width: 48ch;
+  font-size: clamp(1.05rem, 2.1vw, 1.28rem);
+  color: var(--ink-soft);
+  opacity: var(--gh-sub, 0);
+}
+/* the standalone intro below the hero is redundant once the card carries it */
+.js #ghZone + .page-intro { display: none; }
+.js .gh-stage { z-index: 1; }
+
+.gh-arrow {
+  position: absolute; z-index: 3; top: 46%;
+  width: 3rem; height: 3rem; display: grid; place-items: center;
+  color: #f6f3ea; cursor: pointer; border-radius: 50%;
+  background: color-mix(in srgb, var(--ink) 32%, transparent);
+  border: 1px solid rgba(246,243,234,.55);
+  -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+  opacity: var(--gh-chrome, 1);
+  transition: background .18s ease, opacity .3s ease;
+}
+.gh-arrow:hover { background: var(--terracotta-deep); border-color: var(--terracotta-deep); }
+.gh-arrow:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.gh-arrow svg { display: block; }
+.gh-prev { left: clamp(0.6rem, 2vw, 1.4rem); }
+.gh-next { right: clamp(0.6rem, 2vw, 1.4rem); }
+
+.gh-dots {
+  position: absolute; z-index: 3; bottom: clamp(1rem, 3vw, 1.5rem);
+  right: clamp(1.1rem, 4vw, 2.6rem);
+  display: flex; gap: 0.5rem; opacity: var(--gh-chrome, 1);
+}
+.gh-dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: rgba(246,243,234,.45); transition: background .2s ease; }
+.gh-dot.is-active { background: #f6f3ea; }
+
+/* JS on: pin the hero and give the scrub its scroll travel */
+.js .gh-scrollzone { height: calc(var(--gh-zone, 200) * 1vh); }
+.js .gh-sticky { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+.js .grants-hero { height: 100%; min-height: 0; border-bottom: 0; }
+
+/* home hero: palette switcher over the video, and the scroll hint */
+.grants-hero .palette-switcher { z-index: 6; opacity: var(--gh-chrome, 1); transition: opacity .2s ease; }
+.gh-scroll-cue {
+  position: absolute; z-index: 3; left: 50%; bottom: clamp(1.4rem, 4vw, 2.6rem);
+  transform: translateX(-50%);
+  display: inline-flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  font-family: var(--sans-label); font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: rgba(246, 243, 234, 0.82); text-shadow: 0 1px 8px rgba(0,0,0,.45);
+  pointer-events: none; opacity: var(--gh-chrome, 1);
+}
+.gh-scroll-cue svg { width: 1.1rem; height: 1.1rem; animation: cueBob 1.9s ease-in-out infinite; }
+
+@media (max-width: 760px) {
+  .gh-arrow { width: 2.6rem; height: 2.6rem; }
+  .js .gh-scrollzone { --gh-zone: 180; }
+}
+
+/* No pin, no scrub, no clip when the visitor prefers reduced motion —
+   fall back to a static banner with the white title over the poster */
+@media (prefers-reduced-motion: reduce) {
+  .js .gh-scrollzone { height: auto; }
+  .js .gh-sticky { position: relative; height: auto; }
+  .js .grants-hero { min-height: clamp(18rem, 42vw, 30rem); border-bottom: 1px solid var(--line); }
+  .gh-stage { clip-path: none; }
+  .gh-reveal-inner h1 { color: #fff; }   /* stays white over the static poster */
+  .gh-arrow, .gh-dots { opacity: 1; }
+}
 
 /* ---------- leadership ---------- */
 
@@ -530,8 +726,8 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 
 .apply-card {
   margin-top: clamp(2rem, 5vw, 3rem);
-  background: var(--lichen);
-  border: 1px solid color-mix(in srgb, var(--olive) 25%, var(--lichen));
+  background: var(--paper-deep);
+  border: 1px solid color-mix(in srgb, var(--olive) 32%, transparent);
   padding: clamp(1.75rem, 4vw, 2.75rem);
   max-width: 46rem;
 }
@@ -542,12 +738,12 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   font-family: var(--sans-label); font-size: 0.95rem; font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--paper);
-  background: var(--terracotta-deep);
+  background: var(--olive-lift);
   padding: 0.85rem 1.4rem;
   text-decoration: none;
   transition: background .15s ease;
 }
-.apply-card .email:hover { background: var(--terracotta); color: var(--paper); }
+.apply-card .email:hover { background: var(--ink); color: var(--paper); }
 
 /* ---------- contact ---------- */
 
@@ -557,12 +753,12 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   display: inline-block; margin-top: 2.2rem;
   font-family: var(--serif-head); font-weight: 450;
   font-size: clamp(1.4rem, 3.5vw, 2.1rem);
-  color: var(--terracotta-deep);
+  color: var(--logo-orange);
   text-decoration: none;
-  border-bottom: 2px solid var(--terracotta);
+  border-bottom: 2px solid var(--logo-orange);
   padding-bottom: 0.15rem;
 }
-.contact-hero .email-big:hover { color: var(--terracotta); }
+.contact-hero .email-big:hover { color: var(--ink); border-bottom-color: var(--ink); }
 .contact-hero .note { margin-top: 2rem; color: var(--ink-soft); max-width: 44ch; margin-inline: auto; }
 
 /* ---------- cta strip (home) ---------- */
@@ -576,14 +772,14 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 .cta-link {
   font-family: var(--sans-label); font-size: 0.8rem; font-weight: 600;
   letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--terracotta-deep); text-decoration: none;
+  color: var(--olive-lift); text-decoration: none;
   display: inline-flex; align-items: center; gap: 0.6rem;
-  border: 1px solid var(--terracotta);
+  border: 1px solid var(--olive-lift);
   padding: 0.9rem 1.5rem;
   transition: background .15s ease, color .15s ease;
   white-space: nowrap;
 }
-.cta-link:hover { background: var(--terracotta-deep); border-color: var(--terracotta-deep); color: var(--paper); }
+.cta-link:hover { background: var(--olive-lift); border-color: var(--olive-lift); color: var(--paper); }
 .cta-link::after { content: "→"; }
 
 /* ---------- footer ---------- */
@@ -624,11 +820,155 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 
 /* ---------- brand mark motif ---------- */
 
+
+/* ── Home opening ────────────────────────────────────────────────────────────
+   Three options on arrows:
+     0  solid ground
+     1  the photograph, static
+     2  the photograph pinned while the page scrolls — it closes upward to the
+        cream ground and the mark resolves from paper to full colour.
+   Option 2 is the parallax we had before, without the train. */
+.op-zone { position: relative; }
+.op-zone[data-slide="2"] { height: 220vh; }
+
+.opening {
+  position: relative;
+  display: grid; place-items: center;
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--olive);
+}
+.op-zone[data-slide="2"] .opening {
+  position: sticky; top: 0;
+  height: 100svh; min-height: 0;
+  background: var(--paper);
+}
+
+.op-stage { position: absolute; inset: 0; z-index: 0; }
+.op-slide {
+  position: absolute; inset: 0; margin: 0;
+  opacity: 0; visibility: hidden;
+  transition: opacity .55s ease, visibility .55s;
+}
+.op-slide.is-active { opacity: 1; visibility: visible; }
+.op-slide[data-kind="solid"] { background: var(--olive); }
+.opening-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.op-slide[data-kind="photo"]::after,
+.op-slide[data-kind="reveal"]::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(28,20,14,.34), rgba(28,20,14,.52));
+}
+
+/* the pinned option: the frame closes upward, scroll-bound so no transition */
+.op-zone[data-slide="2"] .op-slide[data-kind="reveal"] {
+  clip-path: inset(0 0 calc(var(--op, 0) * 100%) 0);
+  transition: none;
+}
+
+.op-logo { position: relative; z-index: 3; width: min(420px, 62vw); }
+.op-logo img { display: block; width: 100%; height: auto; }
+.op-logo .op-logo-color { position: absolute; inset: 0; opacity: 0; }
+/* The mark resolves exactly where the cream edge crosses it, rather than
+   cross-fading as a whole — otherwise it greys out mid-sweep.
+   --oplogo is the fraction of the mark still standing over the photograph. */
+.op-zone[data-slide="2"] .op-logo img { transition: none; }
+.op-zone[data-slide="2"] .op-logo .op-logo-paper {
+  opacity: 1;
+  clip-path: inset(0 0 calc((1 - var(--oplogo, 1)) * 100%) 0);
+}
+.op-zone[data-slide="2"] .op-logo .op-logo-color {
+  opacity: 1;
+  clip-path: inset(calc(var(--oplogo, 1) * 100%) 0 0 0);
+}
+
+.op-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 4;
+  width: 2.6rem; height: 2.6rem; border-radius: 50%;
+  border: 0; cursor: pointer;
+  background: rgba(253,251,245,.82); color: #33241a;
+  font-size: 1.5rem; line-height: 1; display: grid; place-items: center;
+  transition: background .2s ease, transform .2s ease;
+}
+.op-arrow:hover { background: #fdfbf5; }
+.op-arrow:active { transform: translateY(-50%) scale(.94); }
+.op-prev { left: clamp(0.75rem, 3vw, 2rem); }
+.op-next { right: clamp(0.75rem, 3vw, 2rem); }
+
+.op-dots {
+  position: absolute; z-index: 4; bottom: clamp(1.25rem, 4vh, 2.5rem);
+  left: 50%; transform: translateX(-50%);
+  display: flex; gap: 0.5rem;
+}
+.op-dots span { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: rgba(253,251,245,.45); }
+.op-dots span.is-active { background: #fdfbf5; }
+
+/* chrome steps back as the pinned option resolves */
+.op-zone[data-slide="2"] .op-arrow,
+.op-zone[data-slide="2"] .op-dots {
+  opacity: calc(1 - var(--op, 0));
+  transition: none;
+}
+.op-zone[data-slide="2"] .op-arrow { background: rgba(51,36,26,.14); color: #33241a; }
+.op-zone[data-slide="2"] .op-dots span { background: rgba(51,36,26,.3); }
+.op-zone[data-slide="2"] .op-dots span.is-active { background: #33241a; }
+
+@media (prefers-reduced-motion: reduce) {
+  .op-zone[data-slide="2"] { height: auto; }
+  .op-zone[data-slide="2"] .opening { position: relative; }
+}
+@media (max-width: 720px) {
+  .op-arrow { width: 2.2rem; height: 2.2rem; font-size: 1.25rem; }
+}
+
+
+/* ── Opening lockup (mhw1 variant) ──────────────────────────────────────────
+   The mark with the quote set beneath it, as one unit. Two stacked copies —
+   paper over the photograph, ink over the cream — clipped against each other
+   at the rising edge so the whole lockup resolves as the edge passes it. */
+.op-lockup { position: relative; z-index: 3; width: min(560px, 82vw); text-align: center; }
+.op-lockup .lk { display: block; }
+.op-lockup .lk-color { position: absolute; inset: 0; opacity: 0; }
+.op-lockup img { display: block; width: min(420px, 62vw); height: auto; margin: 0 auto; }
+.op-rule {
+  width: 4.5rem; height: 2px; margin: clamp(1.4rem, 3vw, 2.1rem) auto;
+  background: var(--logo-orange);
+}
+.op-quote {
+  font-family: var(--serif-head); font-style: italic; font-weight: 400;
+  font-size: clamp(1.05rem, 1.9vw, 1.45rem);
+  line-height: 1.45; letter-spacing: .005em;
+  margin: 0; text-wrap: balance;
+}
+.lk-paper .op-quote { color: var(--paper); }
+.lk-color .op-quote { color: var(--ink); }
+
+.op-zone[data-slide="2"] .op-lockup .lk { transition: none; }
+.op-zone[data-slide="2"] .op-lockup .lk-paper {
+  clip-path: inset(0 0 calc((1 - var(--oplogo, 1)) * 100%) 0);
+}
+.op-zone[data-slide="2"] .op-lockup .lk-color {
+  opacity: 1;
+  clip-path: inset(calc(var(--oplogo, 1) * 100%) 0 0 0);
+}
+
+/* the statement that replaces the quote in the first section */
+.hero-statement {
+  font-family: var(--serif-head);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3.2vw, 3rem);
+  line-height: 1.18;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: balance;
+}
+
 .mark-divider {
   display: flex; justify-content: center;
   padding-block: clamp(0.5rem, 2vw, 1.5rem);
 }
-.mark-divider img { height: 2.6rem; width: auto; opacity: .9; }
+.mark-divider img { height: 2.6rem; width: auto; opacity: .9; filter: var(--mark-img-filter, none); }
 
 .contact-hero .contact-mark {
   height: 3.4rem; width: auto;
@@ -647,7 +987,134 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 
 .page-intro { padding-block: clamp(3.5rem, 8vw, 5.5rem) clamp(1rem, 3vw, 2rem); }
 .page-intro h1 { font-size: clamp(2.3rem, 5.5vw, 3.6rem); margin-top: 1rem; max-width: 18ch; }
+
+/* full-width olive banner that carries the page title (interior pages) */
+.title-band {
+  background: var(--olive);
+  color: #f4f1e4;
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.25rem, 7vw, 5rem);
+}
+.title-band::before {
+  content: ""; position: absolute; z-index: 0;
+  right: -5rem; top: 50%; transform: translateY(-50%);
+  width: 30rem; height: 22rem;
+  background: url("assets/mark-white.png") no-repeat center / contain;
+  opacity: 0.07;
+}
+.title-band .container { position: relative; z-index: 1; }
+.title-band h1 {
+  font-family: var(--serif-display); letter-spacing: -0.005em;
+  font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+  color: #f4f1e4; margin: 0;
+}
 .page-intro .lede { margin-top: 1.2rem; font-size: 1.25rem; color: var(--ink-soft); max-width: 56ch; }
 
 /* The .rise class is a no-op hook kept for future motion work.
    The site renders fully static so nothing can ever fail to appear. */
+
+/* ============================================================
+   Home splash cover + scroll-revealed header
+   ============================================================ */
+
+.splash {
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-items: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(125% 95% at 50% 32%,
+      color-mix(in srgb, var(--olive) 84%, #ffffff) 0%,
+      var(--olive) 52%,
+      color-mix(in srgb, var(--olive) 80%, #000000) 100%);
+}
+
+/* palette switcher (testing feature) — labelled orbs */
+.palette-switcher {
+  position: absolute; z-index: 4;
+  top: clamp(1rem, 3vw, 1.9rem); right: clamp(1rem, 3vw, 2rem);
+  display: flex; gap: clamp(0.5rem, 1.4vw, 1.1rem);
+  align-items: flex-start; flex-wrap: wrap; justify-content: flex-end;
+  max-width: min(70vw, 34rem);
+}
+.pal-dot {
+  display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
+  background: none; border: 0; padding: 0; cursor: pointer; outline: none;
+}
+.pal-orb {
+  width: clamp(2.4rem, 3.6vw, 3.1rem); aspect-ratio: 1; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.6);
+  background: conic-gradient(var(--a) 0 33.3%, var(--b) 33.3% 66.6%, var(--c) 66.6% 100%);
+  box-shadow: 0 3px 13px rgba(0,0,0,.32);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.pal-dot:hover .pal-orb { transform: scale(1.1); }
+.pal-dot:focus-visible .pal-orb { box-shadow: 0 0 0 2px rgba(255,255,255,.95); }
+.pal-dot[aria-pressed="true"] .pal-orb {
+  box-shadow: 0 0 0 2px rgba(255,255,255,.96), 0 3px 13px rgba(0,0,0,.32);
+}
+.pal-name {
+  font-family: var(--sans-label); font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(245,243,232,.78); text-shadow: 0 1px 6px rgba(0,0,0,.4);
+  white-space: nowrap; transition: color .2s ease;
+}
+.pal-dot:hover .pal-name { color: #fff; }
+.pal-dot[aria-pressed="true"] .pal-name { color: #fff; font-weight: 700; }
+@media (max-width: 560px) {
+  .palette-switcher { gap: 0.4rem; }
+  .pal-orb { width: 2.1rem; }
+  .pal-name { font-size: 0.54rem; letter-spacing: 0.08em; }
+}
+/* faint five-figures watermark behind the mark */
+.splash::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: url("assets/mark-white.png") no-repeat center 44% / min(38rem, 68%);
+  opacity: 0.055;
+}
+.splash-logo {
+  grid-row: 1; align-self: center;
+  width: min(560px, 80vw); height: auto;
+  filter: drop-shadow(0 14px 44px rgba(0,0,0,.30));
+  animation: splashRise 1s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes splashRise {
+  from { opacity: 0; transform: translateY(20px) scale(.985); }
+  to   { opacity: 1; transform: none; }
+}
+.splash .scroll-cue {
+  grid-row: 2; align-self: end; margin-bottom: 2.4rem;
+  display: inline-flex; flex-direction: column; align-items: center; gap: .55rem;
+  font-family: var(--sans-label); font-size: .64rem; font-weight: 600;
+  letter-spacing: .24em; text-transform: uppercase;
+  color: rgba(238,236,218,.72); text-decoration: none;
+  animation: splashRise 1s .35s cubic-bezier(.2,.7,.2,1) both;
+}
+.scroll-cue:hover { color: rgba(238,236,218,.95); }
+.scroll-cue svg { width: 1.15rem; height: 1.15rem; animation: cueBob 1.9s ease-in-out infinite; }
+@keyframes cueBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+/* header hidden until the splash is scrolled past (home only, JS-gated) */
+.js .site-header.hide-until-scroll {
+  position: fixed; top: 0; left: 0; right: 0;
+  transform: translateY(-100%); opacity: 0; pointer-events: none;
+  transition: transform .55s cubic-bezier(.2,.7,.2,1), opacity .4s ease;
+}
+.js .site-header.hide-until-scroll.revealed {
+  transform: translateY(0); opacity: 1; pointer-events: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .splash-logo, .scroll-cue { animation: none; }
+  .scroll-cue svg { animation: none; }
+}
+
+/* ============================================================
+   Contact page — email body below the title band
+   ============================================================ */
+
+.contact-hero { padding-block: clamp(2.5rem, 5vw, 3.75rem) clamp(2.5rem, 5vw, 3.75rem); }

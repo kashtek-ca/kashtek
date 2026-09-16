@@ -23,8 +23,8 @@
       <div class="nav-item">
         <a class="top" href="who-we-are.html">Who We Are</a>
         <div class="dropdown">
-          <a href="who-we-are.html#leadership">Our Leadership</a>
           <a href="who-we-are.html#founder">Our Founder</a>
+          <a href="who-we-are.html#leadership">Our Leadership</a>
         </div>
       </div>
       <div class="nav-item">
@@ -42,12 +42,15 @@
 </header>
 
 <main>
+  <section class="title-band">
+    <div class="container">
+      <h1 class="rise d1">Contact Us</h1>
+    </div>
+  </section>
+
   <div class="contact-hero container">
-    <img class="contact-mark" src="assets/mark-terracotta.png" alt="">
-    <span class="eyebrow rise">Contact Us</span>
-    <h1 class="rise d1">Contact Us</h1>
-    <a class="email-big rise d2" href="mailto:info@mhweiner.org">info@mhweiner.org</a>
-    <p class="note rise d3">Grant applicants: please review our <a href="grants.html#eligibility">eligibility criteria</a> before submitting a proposal.</p>
+    <a class="email-big" href="mailto:info@mhweiner.org">info@mhweiner.org</a>
+    <p class="note">Grant applicants: please review our <a href="grants.html#eligibility">eligibility criteria</a> before submitting a proposal.</p>
   </div>
 </main>
 
@@ -68,5 +71,26 @@
     btn.setAttribute("aria-expanded", open);
   });
 </script>
+
+<!-- ANCHOR-FIX:START -->
+<script>
+(function(){
+  // On initial load, scroll-behavior:smooth + async font/image reflow makes the
+  // browser overshoot/miss the hash target. Force an accurate instant landing.
+  function jump(){
+    if(!location.hash) return;
+    var el = document.getElementById(location.hash.slice(1));
+    if(!el) return;
+    var root = document.documentElement;
+    var prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    el.scrollIntoView();
+    root.style.scrollBehavior = prev;
+  }
+  window.addEventListener("load", function(){ setTimeout(jump, 0); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ setTimeout(jump, 0); });
+})();
+</script>
+<!-- ANCHOR-FIX:END -->
 </body>
 </html>
