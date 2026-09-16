@@ -895,19 +895,27 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 .op-next { right: clamp(0.75rem, 3vw, 2rem); }
 
 .op-dots {
-  position: absolute; z-index: 4; bottom: clamp(1.25rem, 4vh, 2.5rem);
+  position: absolute; z-index: 4; bottom: clamp(4rem, 9vh, 5.5rem);
   left: 50%; transform: translateX(-50%);
   display: flex; gap: 0.5rem;
 }
 .op-dots span { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: rgba(253,251,245,.45); }
 .op-dots span.is-active { background: #fdfbf5; }
 
-/* chrome steps back as the pinned option resolves */
-.op-zone[data-slide="2"] .op-arrow,
-.op-zone[data-slide="2"] .op-dots {
-  opacity: calc(1 - var(--op, 0));
-  transition: none;
+.op-cue {
+  position: absolute; z-index: 4; bottom: clamp(1.1rem, 3vh, 2rem);
+  left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+  font-family: var(--sans-label); font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: #fdfbf5; opacity: .9; pointer-events: none;
 }
+.op-cue svg { width: 17px; height: 17px; animation: op-cue-bob 2.2s ease-in-out infinite; }
+@keyframes op-cue-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+@media (prefers-reduced-motion: reduce) { .op-cue svg { animation: none; } }
+.op-zone[data-slide="2"] .op-cue { color: #33241a; }
+
+/* chrome stays visible for the whole section so the options are always reachable */
 .op-zone[data-slide="2"] .op-arrow { background: rgba(51,36,26,.14); color: #33241a; }
 .op-zone[data-slide="2"] .op-dots span { background: rgba(51,36,26,.3); }
 .op-zone[data-slide="2"] .op-dots span.is-active { background: #33241a; }
