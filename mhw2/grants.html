@@ -60,14 +60,14 @@
         <h2>Where We Give</h2>
       </div>
       <!-- DRAFT COPY: sector descriptions to be reviewed by the board -->
-      <div class="give-list" data-tagstyle="white">
+      <div class="give-list" data-tagstyle="orange">
         <article class="give-row">
           <div class="give-media grain graded gm-car" data-count="4">
             <span class="tag">01</span>
             <!-- TAG-CHOOSER:START — review aid: cycles every number box on this page -->
             <span class="tag-chooser" role="group" aria-label="Number box colour">
               <button type="button" class="tc-prev" aria-label="Previous number colour">&#8249;</button>
-              <span class="tc-name">White</span>
+              <span class="tc-name">Orange</span>
               <button type="button" class="tc-next" aria-label="Next number colour">&#8250;</button>
             </span>
             <!-- TAG-CHOOSER:END -->
@@ -257,9 +257,9 @@
   var box  = document.querySelector(".tag-chooser");
   if (!list || !box) return;
   var OPTIONS = [
-    { key:"white", label:"White" },
-    { key:"brown", label:"Brown" },
-    { key:"black", label:"Black" }
+    { key:"orange",     label:"Orange" },
+    { key:"white",      label:"White" },
+    { key:"background", label:"Background" }
   ];
   var i = 0;
   var name = box.querySelector(".tc-name");
