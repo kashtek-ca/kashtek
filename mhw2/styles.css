@@ -6,18 +6,20 @@
    ============================================================ */
 
 :root {
-  --paper:      #f6f3ea;   /* warm cream ground            */
-  --paper-deep: #efe9da;   /* darker cream for alt bands   */
-  --ink:        #33362a;   /* deep olive charcoal (≠black) */
-  --ink-soft:   #5d5f4e;   /* muted body ink               */
-  --stone:      #c9b394;   /* sunlit wall                  */
-  --terracotta: #b06a42;   /* rooftops / logo orange, deepened */
-  --terracotta-deep: #96552f;
-  --slate:      #76909f;   /* sky-shadow blue              */
-  --olive:      #4d5038;   /* vineyard green               */
-  --lichen:     #eeeabf;   /* pale yellow-green wash       */
-  --line:       #d8cfba;   /* hairline rules               */
-  --logo-orange: #ff8b00;  /* the logo's true orange — fixed across palettes */
+  --paper:      #f4ebe1;   /* warm cream ground            */
+  --paper-deep: #ecdfce;   /* darker cream for alt bands   */
+  --ink:        #33241a;   /* deep olive charcoal (≠black) */
+  --ink-soft:   #5f4a3a;   /* muted body ink               */
+  --stone:      #cc9a68;   /* sunlit wall                  */
+  --terracotta: #b25e2c;   /* rooftops / logo orange, deepened */
+  --terracotta-deep: #8a4318;
+  --slate:      #6f8d88;   /* sky-shadow blue              */
+  --olive:      #443228;   /* vineyard green               */
+  --lichen:     #eeddbe;   /* pale yellow-green wash       */
+  --line:       #ddccb4;   /* hairline rules               */
+  --logo-orange: #ff8b00;  /* the logo's true orange — the one fixed brand colour */
+  --mark:       #ff8b00;   /* hero "obligation to share it" accent            */
+  --mark-img-filter: brightness(0);  /* figures mark below the family photo   */
 
   --serif-display: "Libre Caslon Display", "Libre Caslon Text", Georgia, serif;
   --serif-head:    "Libre Caslon Text", Georgia, serif;
@@ -384,7 +386,7 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 .focus-grid .c-health  { --badge: #bf514a; }
 .focus-grid .c-edu     { --badge: #34708d; }
 .focus-grid .c-sci     { --badge: #755a9e; }
-.focus-grid .c-welfare { --badge: #df8b23; }
+.focus-grid .c-welfare { --badge: #9c546c; }
 .focus-grid .c-env     { --badge: #3f9a5c; }
 .focus-grid figcaption {
   margin-top: 1rem;
