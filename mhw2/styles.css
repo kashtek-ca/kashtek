@@ -822,8 +822,15 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 
 
 /* ── Home opening ────────────────────────────────────────────────────────────
-   Three options for the board, on arrows: a solid ground, the photograph, and
-   the photograph resolving to the full-colour logo as you scroll. */
+   Three options on arrows:
+     0  solid ground
+     1  the photograph, static
+     2  the photograph pinned while the page scrolls — it closes upward to the
+        cream ground and the mark resolves from paper to full colour.
+   Option 2 is the parallax we had before, without the train. */
+.op-zone { position: relative; }
+.op-zone[data-slide="2"] { height: 220vh; }
+
 .opening {
   position: relative;
   display: grid; place-items: center;
@@ -831,7 +838,11 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   overflow: hidden;
   background: var(--olive);
 }
-.opening[data-slide="2"] { background: var(--paper); }
+.op-zone[data-slide="2"] .opening {
+  position: sticky; top: 0;
+  height: 100svh; min-height: 0;
+  background: var(--paper);
+}
 
 .op-stage { position: absolute; inset: 0; z-index: 0; }
 .op-slide {
@@ -847,21 +858,28 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(to bottom, rgba(28,20,14,.34), rgba(28,20,14,.52));
 }
-/* the third option clears to the ground colour as the page is scrolled.
-   No transition here — the value is driven by scroll and must track it exactly. */
-.opening[data-slide="2"] .op-slide[data-kind="reveal"] {
-  opacity: calc(1 - var(--op, 0));
+
+/* the pinned option: the frame closes upward, scroll-bound so no transition */
+.op-zone[data-slide="2"] .op-slide[data-kind="reveal"] {
+  clip-path: inset(0 0 calc(var(--op, 0) * 100%) 0);
   transition: none;
 }
-.opening[data-slide="2"] .op-logo img { transition: none; }
 
 .op-logo { position: relative; z-index: 3; width: min(420px, 62vw); }
 .op-logo img { display: block; width: 100%; height: auto; }
-.op-logo .op-logo-color {
-  position: absolute; inset: 0; opacity: 0;
+.op-logo .op-logo-color { position: absolute; inset: 0; opacity: 0; }
+/* The mark resolves exactly where the cream edge crosses it, rather than
+   cross-fading as a whole — otherwise it greys out mid-sweep.
+   --oplogo is the fraction of the mark still standing over the photograph. */
+.op-zone[data-slide="2"] .op-logo img { transition: none; }
+.op-zone[data-slide="2"] .op-logo .op-logo-paper {
+  opacity: 1;
+  clip-path: inset(0 0 calc((1 - var(--oplogo, 1)) * 100%) 0);
 }
-.opening[data-slide="2"] .op-logo .op-logo-color { opacity: var(--op, 0); }
-.opening[data-slide="2"] .op-logo .op-logo-paper { opacity: calc(1 - var(--op, 0)); }
+.op-zone[data-slide="2"] .op-logo .op-logo-color {
+  opacity: 1;
+  clip-path: inset(calc(var(--oplogo, 1) * 100%) 0 0 0);
+}
 
 .op-arrow {
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 4;
@@ -881,17 +899,24 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   left: 50%; transform: translateX(-50%);
   display: flex; gap: 0.5rem;
 }
-.op-dots span {
-  width: 0.5rem; height: 0.5rem; border-radius: 50%;
-  background: rgba(253,251,245,.45);
-}
+.op-dots span { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: rgba(253,251,245,.45); }
 .op-dots span.is-active { background: #fdfbf5; }
-.opening[data-slide="2"] .op-dots span { background: rgba(51,36,26,.3); }
-.opening[data-slide="2"] .op-dots span.is-active { background: #33241a; }
-.opening[data-slide="2"] .op-arrow { background: rgba(51,36,26,.14); color: #33241a; }
 
+/* chrome steps back as the pinned option resolves */
+.op-zone[data-slide="2"] .op-arrow,
+.op-zone[data-slide="2"] .op-dots {
+  opacity: calc(1 - var(--op, 0));
+  transition: none;
+}
+.op-zone[data-slide="2"] .op-arrow { background: rgba(51,36,26,.14); color: #33241a; }
+.op-zone[data-slide="2"] .op-dots span { background: rgba(51,36,26,.3); }
+.op-zone[data-slide="2"] .op-dots span.is-active { background: #33241a; }
+
+@media (prefers-reduced-motion: reduce) {
+  .op-zone[data-slide="2"] { height: auto; }
+  .op-zone[data-slide="2"] .opening { position: relative; }
+}
 @media (max-width: 720px) {
-  .opening { min-height: 100svh; }
   .op-arrow { width: 2.2rem; height: 2.2rem; font-size: 1.25rem; }
 }
 
