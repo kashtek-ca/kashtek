@@ -390,7 +390,7 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 .focus-grid .c-edu     { --badge: #34708d; }
 .focus-grid .c-sci     { --badge: #755a9e; }
 .focus-grid .c-welfare { --badge: #9c546c; }
-.focus-grid .c-env     { --badge: #358853; }
+.focus-grid .c-env     { --badge: #2f794a; }
 .focus-grid figcaption {
   margin-top: 1rem;
   font-family: var(--serif-head); font-size: 1.05rem; font-weight: 500;
@@ -753,12 +753,12 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   display: inline-block; margin-top: 2.2rem;
   font-family: var(--serif-head); font-weight: 450;
   font-size: clamp(1.4rem, 3.5vw, 2.1rem);
-  color: var(--terracotta-deep);
+  color: var(--logo-orange);
   text-decoration: none;
-  border-bottom: 2px solid var(--terracotta);
+  border-bottom: 2px solid var(--logo-orange);
   padding-bottom: 0.15rem;
 }
-.contact-hero .email-big:hover { color: var(--terracotta); }
+.contact-hero .email-big:hover { color: var(--ink); border-bottom-color: var(--ink); }
 .contact-hero .note { margin-top: 2rem; color: var(--ink-soft); max-width: 44ch; margin-inline: auto; }
 
 /* ---------- cta strip (home) ---------- */
@@ -822,8 +822,8 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 
 
 /* ── Home opening ────────────────────────────────────────────────────────────
-   Two options for the board: a solid ground with the logo, or the train as a
-   photographic background. Both are static — no parallax, no scroll effects. */
+   Three options for the board, on arrows: a solid ground, the photograph, and
+   the photograph resolving to the full-colour logo as you scroll. */
 .opening {
   position: relative;
   display: grid; place-items: center;
@@ -831,19 +831,68 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   overflow: hidden;
   background: var(--olive);
 }
-.opening .container { position: relative; z-index: 2; text-align: center; }
-.opening-mark { width: min(420px, 62vw); height: auto; display: block; margin: 0 auto; }
-.opening-bg {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%; object-fit: cover;
+.opening[data-slide="2"] { background: var(--paper); }
+
+.op-stage { position: absolute; inset: 0; z-index: 0; }
+.op-slide {
+  position: absolute; inset: 0; margin: 0;
+  opacity: 0; visibility: hidden;
+  transition: opacity .55s ease, visibility .55s;
 }
-.opening-photo { background: var(--ink); }
-.opening-photo::after {
-  content: ""; position: absolute; inset: 0; z-index: 1;
+.op-slide.is-active { opacity: 1; visibility: visible; }
+.op-slide[data-kind="solid"] { background: var(--olive); }
+.opening-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.op-slide[data-kind="photo"]::after,
+.op-slide[data-kind="reveal"]::after {
+  content: ""; position: absolute; inset: 0;
   background: linear-gradient(to bottom, rgba(28,20,14,.34), rgba(28,20,14,.52));
 }
+/* the third option clears to the ground colour as the page is scrolled.
+   No transition here — the value is driven by scroll and must track it exactly. */
+.opening[data-slide="2"] .op-slide[data-kind="reveal"] {
+  opacity: calc(1 - var(--op, 0));
+  transition: none;
+}
+.opening[data-slide="2"] .op-logo img { transition: none; }
+
+.op-logo { position: relative; z-index: 3; width: min(420px, 62vw); }
+.op-logo img { display: block; width: 100%; height: auto; }
+.op-logo .op-logo-color {
+  position: absolute; inset: 0; opacity: 0;
+}
+.opening[data-slide="2"] .op-logo .op-logo-color { opacity: var(--op, 0); }
+.opening[data-slide="2"] .op-logo .op-logo-paper { opacity: calc(1 - var(--op, 0)); }
+
+.op-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 4;
+  width: 2.6rem; height: 2.6rem; border-radius: 50%;
+  border: 0; cursor: pointer;
+  background: rgba(253,251,245,.82); color: #33241a;
+  font-size: 1.5rem; line-height: 1; display: grid; place-items: center;
+  transition: background .2s ease, transform .2s ease;
+}
+.op-arrow:hover { background: #fdfbf5; }
+.op-arrow:active { transform: translateY(-50%) scale(.94); }
+.op-prev { left: clamp(0.75rem, 3vw, 2rem); }
+.op-next { right: clamp(0.75rem, 3vw, 2rem); }
+
+.op-dots {
+  position: absolute; z-index: 4; bottom: clamp(1.25rem, 4vh, 2.5rem);
+  left: 50%; transform: translateX(-50%);
+  display: flex; gap: 0.5rem;
+}
+.op-dots span {
+  width: 0.5rem; height: 0.5rem; border-radius: 50%;
+  background: rgba(253,251,245,.45);
+}
+.op-dots span.is-active { background: #fdfbf5; }
+.opening[data-slide="2"] .op-dots span { background: rgba(51,36,26,.3); }
+.opening[data-slide="2"] .op-dots span.is-active { background: #33241a; }
+.opening[data-slide="2"] .op-arrow { background: rgba(51,36,26,.14); color: #33241a; }
+
 @media (max-width: 720px) {
   .opening { min-height: 100svh; }
+  .op-arrow { width: 2.2rem; height: 2.2rem; font-size: 1.25rem; }
 }
 
 .mark-divider {
