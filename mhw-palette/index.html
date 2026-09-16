@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/favicon.png">
+<title>Colour Palette Options — Marvin H. Weiner Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=Spectral:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page:#f4f1e8;
+    --card:#fbf9f3;
+    --ink:#111111;
+    --ink-soft:#55564b;
+    --line:#ded6c6;
+    --logo-orange:#ff8b00;
+    --serif-display:"Libre Caslon Display",Georgia,serif;
+    --serif-head:"Libre Caslon Text",Georgia,serif;
+    --serif-body:"Spectral",Georgia,serif;
+    --sans:"Archivo","Helvetica Neue",sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--page);color:var(--ink);
+    font-family:var(--serif-body);font-weight:300;font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* ---------- masthead ---------- */
+  .masthead{padding-block:clamp(2.5rem,6vw,4.5rem) 0;text-align:center}
+  .masthead img{width:clamp(180px,26vw,240px);height:auto;margin-bottom:2rem}
+  .eyebrow{
+    font-family:var(--sans);font-size:.7rem;font-weight:600;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  h1{
+    font-family:var(--serif-display);font-weight:400;
+    font-size:clamp(2.4rem,6vw,3.9rem);line-height:1.08;
+    margin:.6rem 0 1.4rem;
+  }
+  .lede{
+    max-width:60ch;margin:0 auto;font-size:1.06rem;color:var(--ink-soft);
+  }
+  .lede em{font-family:var(--serif-head);font-style:italic;color:var(--ink)}
+
+  .rule{
+    max-width:1080px;margin:clamp(2.5rem,6vw,4rem) auto;
+    border:0;border-top:1px solid var(--line);
+  }
+
+  /* ---------- anchors ---------- */
+  .anchors{
+    display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:center;
+    background:var(--card);border:1px solid var(--line);
+    padding:1.6rem 1.8rem;
+  }
+  .anchors h2{
+    font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft);margin:0;flex:1 1 100%;text-align:center;
+  }
+  .anchor{display:flex;align-items:center;gap:.7rem}
+  .anchor i{
+    display:block;width:34px;height:34px;border-radius:50%;
+    border:1px solid rgba(0,0,0,.14);
+  }
+  .anchor span{font-family:var(--sans);font-size:.74rem;letter-spacing:.06em}
+  .anchor small{display:block;color:var(--ink-soft);font-size:.68rem;letter-spacing:.08em}
+
+
+  /* ---------- compare strip ---------- */
+  .compare{
+    background:var(--card);border:1px solid var(--line);
+    padding:1.5rem clamp(1rem,2.5vw,1.8rem) 1.7rem;
+  }
+  .compare h2{
+    font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft);margin:0 0 .35rem;text-align:center;
+  }
+  .compare .hint{
+    text-align:center;color:var(--ink-soft);font-size:.9rem;margin:0 0 1.4rem;
+    font-family:var(--serif-head);font-style:italic;
+  }
+  .ctable{display:grid;grid-template-columns:7.5rem repeat(5,1fr) 1fr;gap:0 2px}
+  .ctable .ch{
+    font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--ink-soft);
+    padding:0 0 .55rem;text-align:center;line-height:1.3;
+  }
+  .ctable .ch.lead{text-align:left}
+  .ctable .rl{
+    display:flex;align-items:center;
+    font-family:var(--serif-head);font-size:.95rem;color:var(--ink);
+    text-decoration:none;padding-right:.8rem;
+  }
+  .ctable .rl:hover{text-decoration:underline}
+  .ctable .rl .num{
+    font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.1em;
+    color:var(--ink-soft);margin-right:.45rem;
+  }
+  .ctable .cc{height:60px}
+  .ctable .cc.ground{border:1px solid rgba(0,0,0,.10)}
+  .ctable .sp{height:6px;grid-column:1/-1}
+  @media (max-width:760px){
+    .ctable{grid-template-columns:5.2rem repeat(5,1fr) 1fr}
+    .ctable .cc{height:44px}
+    .ctable .rl{font-size:.82rem}
+    .ctable .rl .num{display:none}
+  }
+
+  /* ---------- option card ---------- */
+  .option{
+    background:var(--card);border:1px solid var(--line);
+    margin-bottom:clamp(2rem,5vw,3.25rem);
+    overflow:hidden;
+  }
+  .option-head{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1rem;
+    padding:1.5rem clamp(1.2rem,3vw,2rem) 0;
+  }
+  .option-num{
+    font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.16em;
+    color:var(--ink-soft);
+  }
+  .option-name{
+    font-family:var(--serif-display);font-weight:400;font-size:1.9rem;margin:0;
+  }
+  .option-note{
+    flex:1 1 320px;color:var(--ink-soft);font-size:.95rem;
+    font-family:var(--serif-head);font-style:italic;
+  }
+
+  .swatches{
+    display:grid;grid-template-columns:repeat(5,1fr);
+    gap:0;margin-top:1.4rem;
+  }
+  .sw{padding:0}
+  .sw i{display:block;height:104px}
+  .sw b{
+    display:block;font-family:var(--sans);font-size:.68rem;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;margin:.6rem 0 .1rem;
+    padding-inline:.7rem;
+  }
+  .sw code{
+    display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.06em;
+    color:var(--ink-soft);padding-inline:.7rem;padding-bottom:1rem;
+  }
+
+  .grounds{
+    display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center;
+    padding:.4rem clamp(1.2rem,3vw,2rem) 1.5rem;
+    border-bottom:1px solid var(--line);
+  }
+  .grounds .label{
+    font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);
+  }
+  .ground{display:flex;align-items:center;gap:.55rem}
+  .ground i{
+    width:30px;height:30px;border-radius:50%;border:1px solid rgba(0,0,0,.14);
+  }
+  .ground code{font-family:var(--sans);font-size:.66rem;color:var(--ink-soft)}
+
+  /* ---------- applied preview ---------- */
+  .preview{padding:0}
+  .band{
+    display:flex;align-items:center;justify-content:center;
+    padding:1.15rem 1rem;
+  }
+  .band img{width:132px;height:auto;display:block}
+  .stage{padding:2.2rem clamp(1.2rem,3vw,2rem) 2.4rem}
+  .icons{
+    list-style:none;margin:0;padding:0;
+    display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;
+  }
+  .icons li{text-align:center}
+  .circle{
+    width:min(5.2rem,84%);aspect-ratio:1;border-radius:50%;margin:0 auto;
+    display:grid;place-items:center;
+    background:var(--badge);
+    background-image:radial-gradient(circle at 34% 28%,rgba(255,255,255,.20),rgba(0,0,0,.06) 78%);
+    box-shadow:0 14px 24px -18px rgba(40,42,32,.55),inset 0 -8px 16px -12px rgba(0,0,0,.34);
+  }
+  .circle svg{
+    width:46%;height:auto;fill:none;stroke:#f7f3e8;
+    stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+  }
+  .circle svg .fill{fill:#f7f3e8;stroke:none}
+  .icons figcaption{
+    margin-top:.7rem;font-family:var(--serif-head);font-size:.82rem;
+    display:flex;align-items:baseline;justify-content:center;gap:.4rem;
+    white-space:nowrap;
+  }
+  .icons .n{
+    font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.1em;
+  }
+  .sample{
+    margin:2rem auto 0;max-width:46ch;text-align:center;
+    font-size:1.02rem;line-height:1.6;
+  }
+  .sample .q{font-family:var(--serif-head);font-style:italic;font-size:1.15rem}
+
+  /* ---------- closing ---------- */
+  .closing{
+    text-align:center;padding-block:clamp(2rem,5vw,3rem) clamp(3rem,8vw,5rem);
+    max-width:56ch;margin:0 auto;
+  }
+  .closing h2{
+    font-family:var(--serif-display);font-weight:400;font-size:1.7rem;margin:0 0 .8rem;
+  }
+  .closing p{color:var(--ink-soft);margin:0 0 .9rem}
+  .closing a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+
+  @media (max-width:860px){
+    .icons figcaption{white-space:normal}
+    .swatches{grid-template-columns:repeat(3,1fr)}
+    .sw:nth-child(4) i,.sw:nth-child(5) i{height:88px}
+    .icons{grid-template-columns:repeat(3,1fr);row-gap:1.6rem}
+    .icons li:nth-child(4),.icons li:nth-child(5){grid-column:auto}
+  }
+  @media (max-width:560px){
+    .swatches{grid-template-columns:repeat(2,1fr)}
+    .swatches .sw:last-child{grid-column:1/-1}
+    .swatches .sw:last-child i{height:72px}
+    .icons{grid-template-columns:repeat(2,1fr)}
+    .icons li:last-child{grid-column:1/-1}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead wrap">
+  <img src="assets/logo-color.png" alt="Marvin H. Weiner Foundation">
+  <p class="eyebrow">For review</p>
+  <h1>Colour Palette Options</h1>
+  <p class="lede">
+    Ten directions, each built from the same rule: <em>five colours plus black</em>, all muted,
+    with the logo orange as the anchor. Everything else on the site would be drawn from whichever
+    set you choose. The brown is gone from all five.
+  </p>
+</header>
+
+<hr class="rule">
+
+<div class="wrap">
+  <section class="anchors">
+    <h2>Fixed in every option</h2>
+    <div class="anchor">
+      <i style="background:#ff8b00"></i>
+      <span>Logo orange<small>#FF8B00</small></span>
+    </div>
+    <div class="anchor">
+      <i style="background:#111111"></i>
+      <span>Black<small>#111111</small></span>
+    </div>
+  </section>
+</div>
+
+<hr class="rule">
+
+<div class="wrap">
+  <section class="compare">
+    <h2>All ten, side by side</h2>
+    <p class="hint">Ordered darkest to lightest. Read down a column to compare one colour across the options, or click a name to jump to it.</p>
+    <div class="ctable">
+    <div class="ch lead">Option</div>
+    <div class="ch">Healthcare</div>
+    <div class="ch">Education</div>
+    <div class="ch">Science</div>
+    <div class="ch">Social&nbsp;Welfare</div>
+    <div class="ch">Environment</div>
+    <div class="ch">Background</div>
+    <a class="rl" href="#opt-1"><span class="num">01</span>Estate</a>
+    <div class="cc" style="background:#9c443c"></div>
+    <div class="cc" style="background:#24505c"></div>
+    <div class="cc" style="background:#5d4f74"></div>
+    <div class="cc" style="background:#b96f22"></div>
+    <div class="cc" style="background:#4f5636"></div>
+    <div class="cc ground" style="background:#efeade"></div>
+    <div class="sp"></div>
+    <a class="rl" href="#opt-2"><span class="num">02</span>Dusk</a>
+    <div class="cc" style="background:#a2514b"></div>
+    <div class="cc" style="background:#1f4a5a"></div>
+    <div class="cc" style="background:#5f5580"></div>
+    <div class="cc" style="background:#bd7429"></div>
+    <div class="cc" style="background:#566037"></div>
+    <div class="cc ground" style="background:#edf0ea"></div>
+    <div class="sp"></div>
+    <a class="rl" href="#opt-3"><span class="num">03</span>Clay</a>
+    <div class="cc" style="background:#ad5040"></div>
+    <div class="cc" style="background:#365c5f"></div>
+    <div class="cc" style="background:#6f5c78"></div>
+    <div class="cc" style="background:#c9782a"></div>
+    <div class="cc" style="background:#676b41"></div>
+    <div class="cc ground" style="background:#f5ecda"></div>
+    <div class="sp"></div>
+    <a class="rl" href="#opt-4"><span class="num">04</span>Chalk</a>
+    <div class="cc" style="background:#96605a"></div>
+    <div class="cc" style="background:#47646d"></div>
+    <div class="cc" style="background:#6e6580"></div>
+    <div class="cc" style="background:#ac7b47"></div>
+    <div class="cc" style="background:#6f7459"></div>
+    <div class="cc ground" style="background:#eeeae0"></div>
+    <div class="sp"></div>
+    <a class="rl" href="#opt-5"><span class="num">05</span>Archive</a>
+    <div class="cc" style="background:#a85149"></div>
+    <div class="cc" style="background:#2f5d68"></div>
+    <div class="cc" style="background:#6a5b83"></div>
+    <div class="cc" style="background:#c67c2c"></div>
+    <div class="cc" style="background:#5f6640"></div>
+    <div class="cc ground" style="background:#f5f2e9"></div>
+    <div class="sp"></div>
+    <a class="rl" href="#opt-6"><span class="num">06</span>Linen</a>
+    <div class="cc" style="background:#b05a51"></div>
+    <div class="cc" style="background:#3c6b75"></div>
+    <div class="cc" style="background:#736384"></div>
+    <div class="cc" style="background:#c47f31"></div>
+    <div class="cc" style="background:#69704a"></div>
+    <div class="cc ground" style="background:#faf7f0"></div>
+    <div class="sp"></div>
+    <a class="rl" href="#opt-7"><span class="num">07</span>Meadow</a>
+    <div class="cc" style="background:#a9655b"></div>
+    <div class="cc" style="background:#4c777a"></div>
+    <div class="cc" style="background:#767090"></div>
+    <div class="cc" style="background:#b5823f"></div>
+    <div class="cc" style="background:#74804f"></div>
+    <div class="cc ground" style="background:#f1f4e9"></div>
+    <div class="sp"></div>
+    <a class="rl" href="#opt-8"><span class="num">08</span>Porcelain</a>
+    <div class="cc" style="background:#ae6f6a"></div>
+    <div class="cc" style="background:#54808f"></div>
+    <div class="cc" style="background:#7d7a9d"></div>
+    <div class="cc" style="background:#b07a4c"></div>
+    <div class="cc" style="background:#7c876c"></div>
+    <div class="cc ground" style="background:#f4f6f7"></div>
+    <div class="sp"></div>
+    <a class="rl" href="#opt-9"><span class="num">09</span>Bone</a>
+    <div class="cc" style="background:#b96f63"></div>
+    <div class="cc" style="background:#527c88"></div>
+    <div class="cc" style="background:#83769a"></div>
+    <div class="cc" style="background:#c07d31"></div>
+    <div class="cc" style="background:#858b64"></div>
+    <div class="cc ground" style="background:#fbf8f0"></div>
+    <div class="sp"></div>
+    <a class="rl" href="#opt-10"><span class="num">10</span>Blush</a>
+    <div class="cc" style="background:#bd7a72"></div>
+    <div class="cc" style="background:#5f858e"></div>
+    <div class="cc" style="background:#8b81a0"></div>
+    <div class="cc" style="background:#bd7845"></div>
+    <div class="cc" style="background:#898f6c"></div>
+    <div class="cc ground" style="background:#fdf6f0"></div>
+    <div class="sp"></div>
+    </div>
+  </section>
+</div>
+
+<hr class="rule">
+
+<main class="wrap">
+
+  <!-- ============ 1 ============ -->
+  <article class="option" id="opt-1">
+    <div class="option-head">
+      <span class="option-num">Option 01</span>
+      <h2 class="option-name">Estate</h2>
+      <p class="option-note">Deeper and more serious on a soft putty ground. Reads older and more established — closest to a legacy institution.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw"><i style="background:#9c443c"></i><b>Healthcare</b><code>#9C443C</code></div>
+      <div class="sw"><i style="background:#24505c"></i><b>Education</b><code>#24505C</code></div>
+      <div class="sw"><i style="background:#5d4f74"></i><b>Science</b><code>#5D4F74</code></div>
+      <div class="sw"><i style="background:#b96f22"></i><b>Social Welfare</b><code>#B96F22</code></div>
+      <div class="sw"><i style="background:#4f5636"></i><b>Environment</b><code>#4F5636</code></div>
+    </div>
+    <div class="grounds">
+      <span class="label">Background</span>
+      <div class="ground"><i style="background:#efeade"></i><code>#EFEADE</code></div>
+      <div class="ground"><i style="background:#ded7c4"></i><code>#DED7C4</code></div>
+    </div>
+    <div class="preview">
+      <div class="band" style="background:#4f5636"><img src="assets/logo-white.png" alt=""></div>
+      <div class="stage" style="background:#efeade">
+        <ul class="icons">
+          <li><figure><span class="circle" style="--badge:#9c443c"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40C12 31 5 24 5 16.6 5 11 9 7 14 7c4 0 7.6 2.4 10 6 2.4-3.6 6-6 10-6 5 0 9 4 9 9.6C43 24 36 31 24 40Z"/><path d="M11 23h7l2.5-5 3.5 10 2.5-5H37"/></svg></span><figcaption><span class="n" style="color:#9c443c">01</span> Healthcare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#24505c"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 14.5C19 12 12 11.2 6.5 12.8V32.5C12 30.9 19 31.7 24 34.2Z"/><path d="M24 14.5C29 12 36 11.2 41.5 12.8V32.5C36 30.9 29 31.7 24 34.2Z"/><path d="M11 18h8M11 21.5h7"/></svg></span><figcaption><span class="n" style="color:#24505c">02</span> Education</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#5d4f74"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 8h10"/><path d="M21 8v11L12 37a2.2 2.2 0 0 0 2 3.2h20a2.2 2.2 0 0 0 2-3.2L27 19V8"/><path d="M15 31h18"/><circle class="fill" cx="21" cy="35" r="1.1"/><circle class="fill" cx="25.5" cy="37" r="0.9"/><circle class="fill" cx="23" cy="32.4" r="0.8"/></svg></span><figcaption><span class="n" style="color:#5d4f74">03</span> Science</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#b96f22"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 23 24 10l16 13"/><path d="M13 21v18h22V21"/><path d="M24 34c-4-3-6-5-6-7.5 0-1.6 1.3-2.7 2.8-2.7 1.2 0 2.4.7 3.2 1.8.8-1.1 2-1.8 3.2-1.8 1.5 0 2.8 1.1 2.8 2.7 0 2.5-2 4.5-6 7.5Z"/></svg></span><figcaption><span class="n" style="color:#b96f22">04</span> Social Welfare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#4f5636"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v32"/><path d="M24 11c7.5 2 7.5 8.5 0 10.5-7.5 2-7.5 8.5 0 10.5 6.5 1.8 7 6.8 1.5 9"/></svg></span><figcaption><span class="n" style="color:#4f5636">05</span> Environment</figcaption></figure></li>
+        </ul>
+        <p class="sample" style="color:#111111">
+          <span class="q">“If you are fortunate enough to have success, you have an obligation to share it.”</span>
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <article class="option" id="opt-2">
+    <div class="option-head">
+      <span class="option-num">Option 02</span>
+      <h2 class="option-name">Dusk</h2>
+      <p class="option-note">Cool pale green-grey ground, led by a deep blue-green. The navy you asked for, pushed furthest.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw"><i style="background:#a2514b"></i><b>Healthcare</b><code>#A2514B</code></div>
+      <div class="sw"><i style="background:#1f4a5a"></i><b>Education</b><code>#1F4A5A</code></div>
+      <div class="sw"><i style="background:#5f5580"></i><b>Science</b><code>#5F5580</code></div>
+      <div class="sw"><i style="background:#bd7429"></i><b>Social Welfare</b><code>#BD7429</code></div>
+      <div class="sw"><i style="background:#566037"></i><b>Environment</b><code>#566037</code></div>
+    </div>
+    <div class="grounds">
+      <span class="label">Background</span>
+      <div class="ground"><i style="background:#edf0ea"></i><code>#EDF0EA</code></div>
+      <div class="ground"><i style="background:#dee3da"></i><code>#DEE3DA</code></div>
+    </div>
+    <div class="preview">
+      <div class="band" style="background:#566037"><img src="assets/logo-white.png" alt=""></div>
+      <div class="stage" style="background:#edf0ea">
+        <ul class="icons">
+          <li><figure><span class="circle" style="--badge:#a2514b"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40C12 31 5 24 5 16.6 5 11 9 7 14 7c4 0 7.6 2.4 10 6 2.4-3.6 6-6 10-6 5 0 9 4 9 9.6C43 24 36 31 24 40Z"/><path d="M11 23h7l2.5-5 3.5 10 2.5-5H37"/></svg></span><figcaption><span class="n" style="color:#a2514b">01</span> Healthcare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#1f4a5a"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 14.5C19 12 12 11.2 6.5 12.8V32.5C12 30.9 19 31.7 24 34.2Z"/><path d="M24 14.5C29 12 36 11.2 41.5 12.8V32.5C36 30.9 29 31.7 24 34.2Z"/><path d="M11 18h8M11 21.5h7"/></svg></span><figcaption><span class="n" style="color:#1f4a5a">02</span> Education</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#5f5580"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 8h10"/><path d="M21 8v11L12 37a2.2 2.2 0 0 0 2 3.2h20a2.2 2.2 0 0 0 2-3.2L27 19V8"/><path d="M15 31h18"/><circle class="fill" cx="21" cy="35" r="1.1"/><circle class="fill" cx="25.5" cy="37" r="0.9"/><circle class="fill" cx="23" cy="32.4" r="0.8"/></svg></span><figcaption><span class="n" style="color:#5f5580">03</span> Science</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#bd7429"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 23 24 10l16 13"/><path d="M13 21v18h22V21"/><path d="M24 34c-4-3-6-5-6-7.5 0-1.6 1.3-2.7 2.8-2.7 1.2 0 2.4.7 3.2 1.8.8-1.1 2-1.8 3.2-1.8 1.5 0 2.8 1.1 2.8 2.7 0 2.5-2 4.5-6 7.5Z"/></svg></span><figcaption><span class="n" style="color:#bd7429">04</span> Social Welfare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#566037"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v32"/><path d="M24 11c7.5 2 7.5 8.5 0 10.5-7.5 2-7.5 8.5 0 10.5 6.5 1.8 7 6.8 1.5 9"/></svg></span><figcaption><span class="n" style="color:#566037">05</span> Environment</figcaption></figure></li>
+        </ul>
+        <p class="sample" style="color:#111111">
+          <span class="q">“If you are fortunate enough to have success, you have an obligation to share it.”</span>
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <article class="option" id="opt-3">
+    <div class="option-head">
+      <span class="option-num">Option 03</span>
+      <h2 class="option-name">Clay</h2>
+      <p class="option-note">A warm sand ground. Earthiest of the five, and the closest in feeling to the Prague photograph.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw"><i style="background:#ad5040"></i><b>Healthcare</b><code>#AD5040</code></div>
+      <div class="sw"><i style="background:#365c5f"></i><b>Education</b><code>#365C5F</code></div>
+      <div class="sw"><i style="background:#6f5c78"></i><b>Science</b><code>#6F5C78</code></div>
+      <div class="sw"><i style="background:#c9782a"></i><b>Social Welfare</b><code>#C9782A</code></div>
+      <div class="sw"><i style="background:#676b41"></i><b>Environment</b><code>#676B41</code></div>
+    </div>
+    <div class="grounds">
+      <span class="label">Background</span>
+      <div class="ground"><i style="background:#f5ecda"></i><code>#F5ECDA</code></div>
+      <div class="ground"><i style="background:#e6d9c0"></i><code>#E6D9C0</code></div>
+    </div>
+    <div class="preview">
+      <div class="band" style="background:#676b41"><img src="assets/logo-white.png" alt=""></div>
+      <div class="stage" style="background:#f5ecda">
+        <ul class="icons">
+          <li><figure><span class="circle" style="--badge:#ad5040"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40C12 31 5 24 5 16.6 5 11 9 7 14 7c4 0 7.6 2.4 10 6 2.4-3.6 6-6 10-6 5 0 9 4 9 9.6C43 24 36 31 24 40Z"/><path d="M11 23h7l2.5-5 3.5 10 2.5-5H37"/></svg></span><figcaption><span class="n" style="color:#ad5040">01</span> Healthcare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#365c5f"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 14.5C19 12 12 11.2 6.5 12.8V32.5C12 30.9 19 31.7 24 34.2Z"/><path d="M24 14.5C29 12 36 11.2 41.5 12.8V32.5C36 30.9 29 31.7 24 34.2Z"/><path d="M11 18h8M11 21.5h7"/></svg></span><figcaption><span class="n" style="color:#365c5f">02</span> Education</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#6f5c78"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 8h10"/><path d="M21 8v11L12 37a2.2 2.2 0 0 0 2 3.2h20a2.2 2.2 0 0 0 2-3.2L27 19V8"/><path d="M15 31h18"/><circle class="fill" cx="21" cy="35" r="1.1"/><circle class="fill" cx="25.5" cy="37" r="0.9"/><circle class="fill" cx="23" cy="32.4" r="0.8"/></svg></span><figcaption><span class="n" style="color:#6f5c78">03</span> Science</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#c9782a"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 23 24 10l16 13"/><path d="M13 21v18h22V21"/><path d="M24 34c-4-3-6-5-6-7.5 0-1.6 1.3-2.7 2.8-2.7 1.2 0 2.4.7 3.2 1.8.8-1.1 2-1.8 3.2-1.8 1.5 0 2.8 1.1 2.8 2.7 0 2.5-2 4.5-6 7.5Z"/></svg></span><figcaption><span class="n" style="color:#c9782a">04</span> Social Welfare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#676b41"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v32"/><path d="M24 11c7.5 2 7.5 8.5 0 10.5-7.5 2-7.5 8.5 0 10.5 6.5 1.8 7 6.8 1.5 9"/></svg></span><figcaption><span class="n" style="color:#676b41">05</span> Environment</figcaption></figure></li>
+        </ul>
+        <p class="sample" style="color:#111111">
+          <span class="q">“If you are fortunate enough to have success, you have an obligation to share it.”</span>
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <article class="option" id="opt-4">
+    <div class="option-head">
+      <span class="option-num">Option 04</span>
+      <h2 class="option-name">Chalk</h2>
+      <p class="option-note">Chalky, faded pigments — every colour pulled toward the same grey. The five stop competing and start reading as one set.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw"><i style="background:#96605a"></i><b>Healthcare</b><code>#96605A</code></div>
+      <div class="sw"><i style="background:#47646d"></i><b>Education</b><code>#47646D</code></div>
+      <div class="sw"><i style="background:#6e6580"></i><b>Science</b><code>#6E6580</code></div>
+      <div class="sw"><i style="background:#ac7b47"></i><b>Social Welfare</b><code>#AC7B47</code></div>
+      <div class="sw"><i style="background:#6f7459"></i><b>Environment</b><code>#6F7459</code></div>
+    </div>
+    <div class="grounds">
+      <span class="label">Background</span>
+      <div class="ground"><i style="background:#eeeae0"></i><code>#EEEAE0</code></div>
+      <div class="ground"><i style="background:#e0dbcd"></i><code>#E0DBCD</code></div>
+    </div>
+    <div class="preview">
+      <div class="band" style="background:#6f7459"><img src="assets/logo-white.png" alt=""></div>
+      <div class="stage" style="background:#eeeae0">
+        <ul class="icons">
+          <li><figure><span class="circle" style="--badge:#96605a"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40C12 31 5 24 5 16.6 5 11 9 7 14 7c4 0 7.6 2.4 10 6 2.4-3.6 6-6 10-6 5 0 9 4 9 9.6C43 24 36 31 24 40Z"/><path d="M11 23h7l2.5-5 3.5 10 2.5-5H37"/></svg></span><figcaption><span class="n" style="color:#96605a">01</span> Healthcare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#47646d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 14.5C19 12 12 11.2 6.5 12.8V32.5C12 30.9 19 31.7 24 34.2Z"/><path d="M24 14.5C29 12 36 11.2 41.5 12.8V32.5C36 30.9 29 31.7 24 34.2Z"/><path d="M11 18h8M11 21.5h7"/></svg></span><figcaption><span class="n" style="color:#47646d">02</span> Education</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#6e6580"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 8h10"/><path d="M21 8v11L12 37a2.2 2.2 0 0 0 2 3.2h20a2.2 2.2 0 0 0 2-3.2L27 19V8"/><path d="M15 31h18"/><circle class="fill" cx="21" cy="35" r="1.1"/><circle class="fill" cx="25.5" cy="37" r="0.9"/><circle class="fill" cx="23" cy="32.4" r="0.8"/></svg></span><figcaption><span class="n" style="color:#6e6580">03</span> Science</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#ac7b47"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 23 24 10l16 13"/><path d="M13 21v18h22V21"/><path d="M24 34c-4-3-6-5-6-7.5 0-1.6 1.3-2.7 2.8-2.7 1.2 0 2.4.7 3.2 1.8.8-1.1 2-1.8 3.2-1.8 1.5 0 2.8 1.1 2.8 2.7 0 2.5-2 4.5-6 7.5Z"/></svg></span><figcaption><span class="n" style="color:#ac7b47">04</span> Social Welfare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#6f7459"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v32"/><path d="M24 11c7.5 2 7.5 8.5 0 10.5-7.5 2-7.5 8.5 0 10.5 6.5 1.8 7 6.8 1.5 9"/></svg></span><figcaption><span class="n" style="color:#6f7459">05</span> Environment</figcaption></figure></li>
+        </ul>
+        <p class="sample" style="color:#111111">
+          <span class="q">“If you are fortunate enough to have success, you have an obligation to share it.”</span>
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <article class="option" id="opt-5">
+    <div class="option-head">
+      <span class="option-num">Option 05</span>
+      <h2 class="option-name">Archive</h2>
+      <p class="option-note">The gentlest step away from what you have now. Warm cream ground, even tone, nothing shouts.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw"><i style="background:#a85149"></i><b>Healthcare</b><code>#A85149</code></div>
+      <div class="sw"><i style="background:#2f5d68"></i><b>Education</b><code>#2F5D68</code></div>
+      <div class="sw"><i style="background:#6a5b83"></i><b>Science</b><code>#6A5B83</code></div>
+      <div class="sw"><i style="background:#c67c2c"></i><b>Social Welfare</b><code>#C67C2C</code></div>
+      <div class="sw"><i style="background:#5f6640"></i><b>Environment</b><code>#5F6640</code></div>
+    </div>
+    <div class="grounds">
+      <span class="label">Background</span>
+      <div class="ground"><i style="background:#f5f2e9"></i><code>#F5F2E9</code></div>
+      <div class="ground"><i style="background:#eae5d7"></i><code>#EAE5D7</code></div>
+    </div>
+    <div class="preview">
+      <div class="band" style="background:#5f6640"><img src="assets/logo-white.png" alt=""></div>
+      <div class="stage" style="background:#f5f2e9">
+        <ul class="icons">
+          <li><figure><span class="circle" style="--badge:#a85149"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40C12 31 5 24 5 16.6 5 11 9 7 14 7c4 0 7.6 2.4 10 6 2.4-3.6 6-6 10-6 5 0 9 4 9 9.6C43 24 36 31 24 40Z"/><path d="M11 23h7l2.5-5 3.5 10 2.5-5H37"/></svg></span><figcaption><span class="n" style="color:#a85149">01</span> Healthcare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#2f5d68"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 14.5C19 12 12 11.2 6.5 12.8V32.5C12 30.9 19 31.7 24 34.2Z"/><path d="M24 14.5C29 12 36 11.2 41.5 12.8V32.5C36 30.9 29 31.7 24 34.2Z"/><path d="M11 18h8M11 21.5h7"/></svg></span><figcaption><span class="n" style="color:#2f5d68">02</span> Education</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#6a5b83"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 8h10"/><path d="M21 8v11L12 37a2.2 2.2 0 0 0 2 3.2h20a2.2 2.2 0 0 0 2-3.2L27 19V8"/><path d="M15 31h18"/><circle class="fill" cx="21" cy="35" r="1.1"/><circle class="fill" cx="25.5" cy="37" r="0.9"/><circle class="fill" cx="23" cy="32.4" r="0.8"/></svg></span><figcaption><span class="n" style="color:#6a5b83">03</span> Science</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#c67c2c"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 23 24 10l16 13"/><path d="M13 21v18h22V21"/><path d="M24 34c-4-3-6-5-6-7.5 0-1.6 1.3-2.7 2.8-2.7 1.2 0 2.4.7 3.2 1.8.8-1.1 2-1.8 3.2-1.8 1.5 0 2.8 1.1 2.8 2.7 0 2.5-2 4.5-6 7.5Z"/></svg></span><figcaption><span class="n" style="color:#c67c2c">04</span> Social Welfare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#5f6640"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v32"/><path d="M24 11c7.5 2 7.5 8.5 0 10.5-7.5 2-7.5 8.5 0 10.5 6.5 1.8 7 6.8 1.5 9"/></svg></span><figcaption><span class="n" style="color:#5f6640">05</span> Environment</figcaption></figure></li>
+        </ul>
+        <p class="sample" style="color:#111111">
+          <span class="q">“If you are fortunate enough to have success, you have an obligation to share it.”</span>
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <article class="option" id="opt-6">
+    <div class="option-head">
+      <span class="option-num">Option 06</span>
+      <h2 class="option-name">Linen</h2>
+      <p class="option-note">Near-white and airy. More breathing room, colours used sparingly — the quietest of the five.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw"><i style="background:#b05a51"></i><b>Healthcare</b><code>#B05A51</code></div>
+      <div class="sw"><i style="background:#3c6b75"></i><b>Education</b><code>#3C6B75</code></div>
+      <div class="sw"><i style="background:#736384"></i><b>Science</b><code>#736384</code></div>
+      <div class="sw"><i style="background:#c47f31"></i><b>Social Welfare</b><code>#C47F31</code></div>
+      <div class="sw"><i style="background:#69704a"></i><b>Environment</b><code>#69704A</code></div>
+    </div>
+    <div class="grounds">
+      <span class="label">Background</span>
+      <div class="ground"><i style="background:#faf7f0"></i><code>#FAF7F0</code></div>
+      <div class="ground"><i style="background:#f0ebdf"></i><code>#F0EBDF</code></div>
+    </div>
+    <div class="preview">
+      <div class="band" style="background:#69704a"><img src="assets/logo-white.png" alt=""></div>
+      <div class="stage" style="background:#faf7f0">
+        <ul class="icons">
+          <li><figure><span class="circle" style="--badge:#b05a51"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40C12 31 5 24 5 16.6 5 11 9 7 14 7c4 0 7.6 2.4 10 6 2.4-3.6 6-6 10-6 5 0 9 4 9 9.6C43 24 36 31 24 40Z"/><path d="M11 23h7l2.5-5 3.5 10 2.5-5H37"/></svg></span><figcaption><span class="n" style="color:#b05a51">01</span> Healthcare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#3c6b75"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 14.5C19 12 12 11.2 6.5 12.8V32.5C12 30.9 19 31.7 24 34.2Z"/><path d="M24 14.5C29 12 36 11.2 41.5 12.8V32.5C36 30.9 29 31.7 24 34.2Z"/><path d="M11 18h8M11 21.5h7"/></svg></span><figcaption><span class="n" style="color:#3c6b75">02</span> Education</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#736384"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 8h10"/><path d="M21 8v11L12 37a2.2 2.2 0 0 0 2 3.2h20a2.2 2.2 0 0 0 2-3.2L27 19V8"/><path d="M15 31h18"/><circle class="fill" cx="21" cy="35" r="1.1"/><circle class="fill" cx="25.5" cy="37" r="0.9"/><circle class="fill" cx="23" cy="32.4" r="0.8"/></svg></span><figcaption><span class="n" style="color:#736384">03</span> Science</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#c47f31"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 23 24 10l16 13"/><path d="M13 21v18h22V21"/><path d="M24 34c-4-3-6-5-6-7.5 0-1.6 1.3-2.7 2.8-2.7 1.2 0 2.4.7 3.2 1.8.8-1.1 2-1.8 3.2-1.8 1.5 0 2.8 1.1 2.8 2.7 0 2.5-2 4.5-6 7.5Z"/></svg></span><figcaption><span class="n" style="color:#c47f31">04</span> Social Welfare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#69704a"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v32"/><path d="M24 11c7.5 2 7.5 8.5 0 10.5-7.5 2-7.5 8.5 0 10.5 6.5 1.8 7 6.8 1.5 9"/></svg></span><figcaption><span class="n" style="color:#69704a">05</span> Environment</figcaption></figure></li>
+        </ul>
+        <p class="sample" style="color:#111111">
+          <span class="q">“If you are fortunate enough to have success, you have an obligation to share it.”</span>
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <article class="option" id="opt-7">
+    <div class="option-head">
+      <span class="option-num">Option 07</span>
+      <h2 class="option-name">Meadow</h2>
+      <p class="option-note">A soft green ground. The olive leads, and the whole set feels closest to the outdoors.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw"><i style="background:#a9655b"></i><b>Healthcare</b><code>#A9655B</code></div>
+      <div class="sw"><i style="background:#4c777a"></i><b>Education</b><code>#4C777A</code></div>
+      <div class="sw"><i style="background:#767090"></i><b>Science</b><code>#767090</code></div>
+      <div class="sw"><i style="background:#b5823f"></i><b>Social Welfare</b><code>#B5823F</code></div>
+      <div class="sw"><i style="background:#74804f"></i><b>Environment</b><code>#74804F</code></div>
+    </div>
+    <div class="grounds">
+      <span class="label">Background</span>
+      <div class="ground"><i style="background:#f1f4e9"></i><code>#F1F4E9</code></div>
+      <div class="ground"><i style="background:#e3ead6"></i><code>#E3EAD6</code></div>
+    </div>
+    <div class="preview">
+      <div class="band" style="background:#74804f"><img src="assets/logo-white.png" alt=""></div>
+      <div class="stage" style="background:#f1f4e9">
+        <ul class="icons">
+          <li><figure><span class="circle" style="--badge:#a9655b"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40C12 31 5 24 5 16.6 5 11 9 7 14 7c4 0 7.6 2.4 10 6 2.4-3.6 6-6 10-6 5 0 9 4 9 9.6C43 24 36 31 24 40Z"/><path d="M11 23h7l2.5-5 3.5 10 2.5-5H37"/></svg></span><figcaption><span class="n" style="color:#a9655b">01</span> Healthcare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#4c777a"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 14.5C19 12 12 11.2 6.5 12.8V32.5C12 30.9 19 31.7 24 34.2Z"/><path d="M24 14.5C29 12 36 11.2 41.5 12.8V32.5C36 30.9 29 31.7 24 34.2Z"/><path d="M11 18h8M11 21.5h7"/></svg></span><figcaption><span class="n" style="color:#4c777a">02</span> Education</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#767090"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 8h10"/><path d="M21 8v11L12 37a2.2 2.2 0 0 0 2 3.2h20a2.2 2.2 0 0 0 2-3.2L27 19V8"/><path d="M15 31h18"/><circle class="fill" cx="21" cy="35" r="1.1"/><circle class="fill" cx="25.5" cy="37" r="0.9"/><circle class="fill" cx="23" cy="32.4" r="0.8"/></svg></span><figcaption><span class="n" style="color:#767090">03</span> Science</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#b5823f"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 23 24 10l16 13"/><path d="M13 21v18h22V21"/><path d="M24 34c-4-3-6-5-6-7.5 0-1.6 1.3-2.7 2.8-2.7 1.2 0 2.4.7 3.2 1.8.8-1.1 2-1.8 3.2-1.8 1.5 0 2.8 1.1 2.8 2.7 0 2.5-2 4.5-6 7.5Z"/></svg></span><figcaption><span class="n" style="color:#b5823f">04</span> Social Welfare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#74804f"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v32"/><path d="M24 11c7.5 2 7.5 8.5 0 10.5-7.5 2-7.5 8.5 0 10.5 6.5 1.8 7 6.8 1.5 9"/></svg></span><figcaption><span class="n" style="color:#74804f">05</span> Environment</figcaption></figure></li>
+        </ul>
+        <p class="sample" style="color:#111111">
+          <span class="q">“If you are fortunate enough to have success, you have an obligation to share it.”</span>
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <article class="option" id="opt-8">
+    <div class="option-head">
+      <span class="option-num">Option 08</span>
+      <h2 class="option-name">Porcelain</h2>
+      <p class="option-note">Cool and crisp on a pale blue-grey. The most formal of the light options.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw"><i style="background:#ae6f6a"></i><b>Healthcare</b><code>#AE6F6A</code></div>
+      <div class="sw"><i style="background:#54808f"></i><b>Education</b><code>#54808F</code></div>
+      <div class="sw"><i style="background:#7d7a9d"></i><b>Science</b><code>#7d7a9d</code></div>
+      <div class="sw"><i style="background:#b07a4c"></i><b>Social Welfare</b><code>#B07A4C</code></div>
+      <div class="sw"><i style="background:#7c876c"></i><b>Environment</b><code>#7C876C</code></div>
+    </div>
+    <div class="grounds">
+      <span class="label">Background</span>
+      <div class="ground"><i style="background:#f4f6f7"></i><code>#F4F6F7</code></div>
+      <div class="ground"><i style="background:#e4ebee"></i><code>#E4EBEE</code></div>
+    </div>
+    <div class="preview">
+      <div class="band" style="background:#7c876c"><img src="assets/logo-white.png" alt=""></div>
+      <div class="stage" style="background:#f4f6f7">
+        <ul class="icons">
+          <li><figure><span class="circle" style="--badge:#ae6f6a"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40C12 31 5 24 5 16.6 5 11 9 7 14 7c4 0 7.6 2.4 10 6 2.4-3.6 6-6 10-6 5 0 9 4 9 9.6C43 24 36 31 24 40Z"/><path d="M11 23h7l2.5-5 3.5 10 2.5-5H37"/></svg></span><figcaption><span class="n" style="color:#ae6f6a">01</span> Healthcare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#54808f"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 14.5C19 12 12 11.2 6.5 12.8V32.5C12 30.9 19 31.7 24 34.2Z"/><path d="M24 14.5C29 12 36 11.2 41.5 12.8V32.5C36 30.9 29 31.7 24 34.2Z"/><path d="M11 18h8M11 21.5h7"/></svg></span><figcaption><span class="n" style="color:#54808f">02</span> Education</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#7d7a9d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 8h10"/><path d="M21 8v11L12 37a2.2 2.2 0 0 0 2 3.2h20a2.2 2.2 0 0 0 2-3.2L27 19V8"/><path d="M15 31h18"/><circle class="fill" cx="21" cy="35" r="1.1"/><circle class="fill" cx="25.5" cy="37" r="0.9"/><circle class="fill" cx="23" cy="32.4" r="0.8"/></svg></span><figcaption><span class="n" style="color:#7d7a9d">03</span> Science</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#b07a4c"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 23 24 10l16 13"/><path d="M13 21v18h22V21"/><path d="M24 34c-4-3-6-5-6-7.5 0-1.6 1.3-2.7 2.8-2.7 1.2 0 2.4.7 3.2 1.8.8-1.1 2-1.8 3.2-1.8 1.5 0 2.8 1.1 2.8 2.7 0 2.5-2 4.5-6 7.5Z"/></svg></span><figcaption><span class="n" style="color:#b07a4c">04</span> Social Welfare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#7c876c"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v32"/><path d="M24 11c7.5 2 7.5 8.5 0 10.5-7.5 2-7.5 8.5 0 10.5 6.5 1.8 7 6.8 1.5 9"/></svg></span><figcaption><span class="n" style="color:#7c876c">05</span> Environment</figcaption></figure></li>
+        </ul>
+        <p class="sample" style="color:#111111">
+          <span class="q">“If you are fortunate enough to have success, you have an obligation to share it.”</span>
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <article class="option" id="opt-9">
+    <div class="option-head">
+      <span class="option-num">Option 09</span>
+      <h2 class="option-name">Bone</h2>
+      <p class="option-note">Warm near-white with a little more strength in the colours. Gallery-like and calm.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw"><i style="background:#b96f63"></i><b>Healthcare</b><code>#B96F63</code></div>
+      <div class="sw"><i style="background:#527c88"></i><b>Education</b><code>#527C88</code></div>
+      <div class="sw"><i style="background:#83769a"></i><b>Science</b><code>#83769a</code></div>
+      <div class="sw"><i style="background:#c07d31"></i><b>Social Welfare</b><code>#C07D31</code></div>
+      <div class="sw"><i style="background:#858b64"></i><b>Environment</b><code>#858B64</code></div>
+    </div>
+    <div class="grounds">
+      <span class="label">Background</span>
+      <div class="ground"><i style="background:#fbf8f0"></i><code>#FBF8F0</code></div>
+      <div class="ground"><i style="background:#f2ece0"></i><code>#F2ECE0</code></div>
+    </div>
+    <div class="preview">
+      <div class="band" style="background:#858b64"><img src="assets/logo-white.png" alt=""></div>
+      <div class="stage" style="background:#fbf8f0">
+        <ul class="icons">
+          <li><figure><span class="circle" style="--badge:#b96f63"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40C12 31 5 24 5 16.6 5 11 9 7 14 7c4 0 7.6 2.4 10 6 2.4-3.6 6-6 10-6 5 0 9 4 9 9.6C43 24 36 31 24 40Z"/><path d="M11 23h7l2.5-5 3.5 10 2.5-5H37"/></svg></span><figcaption><span class="n" style="color:#b96f63">01</span> Healthcare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#527c88"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 14.5C19 12 12 11.2 6.5 12.8V32.5C12 30.9 19 31.7 24 34.2Z"/><path d="M24 14.5C29 12 36 11.2 41.5 12.8V32.5C36 30.9 29 31.7 24 34.2Z"/><path d="M11 18h8M11 21.5h7"/></svg></span><figcaption><span class="n" style="color:#527c88">02</span> Education</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#83769a"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 8h10"/><path d="M21 8v11L12 37a2.2 2.2 0 0 0 2 3.2h20a2.2 2.2 0 0 0 2-3.2L27 19V8"/><path d="M15 31h18"/><circle class="fill" cx="21" cy="35" r="1.1"/><circle class="fill" cx="25.5" cy="37" r="0.9"/><circle class="fill" cx="23" cy="32.4" r="0.8"/></svg></span><figcaption><span class="n" style="color:#83769a">03</span> Science</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#c07d31"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 23 24 10l16 13"/><path d="M13 21v18h22V21"/><path d="M24 34c-4-3-6-5-6-7.5 0-1.6 1.3-2.7 2.8-2.7 1.2 0 2.4.7 3.2 1.8.8-1.1 2-1.8 3.2-1.8 1.5 0 2.8 1.1 2.8 2.7 0 2.5-2 4.5-6 7.5Z"/></svg></span><figcaption><span class="n" style="color:#c07d31">04</span> Social Welfare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#858b64"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v32"/><path d="M24 11c7.5 2 7.5 8.5 0 10.5-7.5 2-7.5 8.5 0 10.5 6.5 1.8 7 6.8 1.5 9"/></svg></span><figcaption><span class="n" style="color:#858b64">05</span> Environment</figcaption></figure></li>
+        </ul>
+        <p class="sample" style="color:#111111">
+          <span class="q">“If you are fortunate enough to have success, you have an obligation to share it.”</span>
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <article class="option" id="opt-10">
+    <div class="option-head">
+      <span class="option-num">Option 10</span>
+      <h2 class="option-name">Blush</h2>
+      <p class="option-note">The lightest and warmest. A faint pink in the paper makes it the most domestic of the set.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw"><i style="background:#bd7a72"></i><b>Healthcare</b><code>#BD7A72</code></div>
+      <div class="sw"><i style="background:#5f858e"></i><b>Education</b><code>#5F858E</code></div>
+      <div class="sw"><i style="background:#8b81a0"></i><b>Science</b><code>#8b81a0</code></div>
+      <div class="sw"><i style="background:#bd7845"></i><b>Social Welfare</b><code>#BD7845</code></div>
+      <div class="sw"><i style="background:#898f6c"></i><b>Environment</b><code>#898F6C</code></div>
+    </div>
+    <div class="grounds">
+      <span class="label">Background</span>
+      <div class="ground"><i style="background:#fdf6f0"></i><code>#FDF6F0</code></div>
+      <div class="ground"><i style="background:#f4e4da"></i><code>#F4E4DA</code></div>
+    </div>
+    <div class="preview">
+      <div class="band" style="background:#898f6c"><img src="assets/logo-white.png" alt=""></div>
+      <div class="stage" style="background:#fdf6f0">
+        <ul class="icons">
+          <li><figure><span class="circle" style="--badge:#bd7a72"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40C12 31 5 24 5 16.6 5 11 9 7 14 7c4 0 7.6 2.4 10 6 2.4-3.6 6-6 10-6 5 0 9 4 9 9.6C43 24 36 31 24 40Z"/><path d="M11 23h7l2.5-5 3.5 10 2.5-5H37"/></svg></span><figcaption><span class="n" style="color:#bd7a72">01</span> Healthcare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#5f858e"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 14.5C19 12 12 11.2 6.5 12.8V32.5C12 30.9 19 31.7 24 34.2Z"/><path d="M24 14.5C29 12 36 11.2 41.5 12.8V32.5C36 30.9 29 31.7 24 34.2Z"/><path d="M11 18h8M11 21.5h7"/></svg></span><figcaption><span class="n" style="color:#5f858e">02</span> Education</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#8b81a0"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 8h10"/><path d="M21 8v11L12 37a2.2 2.2 0 0 0 2 3.2h20a2.2 2.2 0 0 0 2-3.2L27 19V8"/><path d="M15 31h18"/><circle class="fill" cx="21" cy="35" r="1.1"/><circle class="fill" cx="25.5" cy="37" r="0.9"/><circle class="fill" cx="23" cy="32.4" r="0.8"/></svg></span><figcaption><span class="n" style="color:#8b81a0">03</span> Science</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#bd7845"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 23 24 10l16 13"/><path d="M13 21v18h22V21"/><path d="M24 34c-4-3-6-5-6-7.5 0-1.6 1.3-2.7 2.8-2.7 1.2 0 2.4.7 3.2 1.8.8-1.1 2-1.8 3.2-1.8 1.5 0 2.8 1.1 2.8 2.7 0 2.5-2 4.5-6 7.5Z"/></svg></span><figcaption><span class="n" style="color:#bd7845">04</span> Social Welfare</figcaption></figure></li>
+          <li><figure><span class="circle" style="--badge:#898f6c"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v32"/><path d="M24 11c7.5 2 7.5 8.5 0 10.5-7.5 2-7.5 8.5 0 10.5 6.5 1.8 7 6.8 1.5 9"/></svg></span><figcaption><span class="n" style="color:#898f6c">05</span> Environment</figcaption></figure></li>
+        </ul>
+        <p class="sample" style="color:#111111">
+          <span class="q">“If you are fortunate enough to have success, you have an obligation to share it.”</span>
+        </p>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<hr class="rule">
+
+<footer class="closing wrap">
+  <h2>How to choose</h2>
+  <p>
+    Reply with a name — Estate, Dusk, Clay, Chalk, Archive, Linen, Meadow, Porcelain, Bone or Blush — and I will build the site
+    around it. Mixing is fine too: take the greens from one and the blue from another.
+  </p>
+  <p>
+    Nothing else on the site moves until this is settled, so a quick reply keeps us on
+    track for the board meeting.
+  </p>
+  <p><a href="mailto:info.kashtek@gmail.com">info.kashtek@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
