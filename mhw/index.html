@@ -62,6 +62,11 @@
       <img class="op-logo-color" src="assets/logo-color.png" alt="" aria-hidden="true">
     </div>
 
+    <span class="op-imgpick" role="group" aria-label="Opening photograph">
+      <button type="button" class="ip-prev" aria-label="Previous photograph">&#8249;</button>
+      <span class="ip-name">Ridge curve</span>
+      <button type="button" class="ip-next" aria-label="Next photograph">&#8250;</button>
+    </span>
     <button type="button" class="op-arrow op-prev" aria-label="Previous opening option">&#8249;</button>
     <button type="button" class="op-arrow op-next" aria-label="Next opening option">&#8250;</button>
     <div class="op-dots" aria-hidden="true">
@@ -233,6 +238,27 @@
       header.classList.toggle("revealed", past);
     }
   }
+
+  // photograph chooser — swaps the image both photo options use
+  var pick = opening.querySelector(".op-imgpick");
+  if (pick){
+    var PHOTOS = [
+      { src:"assets/banner/opening-tracks.jpg",   label:"Ridge curve" },
+      { src:"assets/banner/opening-tracks-2.jpg", label:"Valley fog" },
+      { src:"assets/banner/opening-tracks-3.jpg", label:"Track level" }
+    ];
+    var pi = 0, pname = pick.querySelector(".ip-name");
+    var imgs = opening.querySelectorAll(".opening-bg");
+    function setPhoto(n){
+      pi = (n + PHOTOS.length) % PHOTOS.length;
+      for (var k = 0; k < imgs.length; k++) imgs[k].src = PHOTOS[pi].src;
+      pname.textContent = PHOTOS[pi].label;
+    }
+    pick.querySelector(".ip-prev").addEventListener("click", function(){ setPhoto(pi-1); });
+    pick.querySelector(".ip-next").addEventListener("click", function(){ setPhoto(pi+1); });
+    setPhoto(0);
+  }
+
   window.addEventListener("scroll", update, { passive: true });
   window.addEventListener("resize", update);
   update();

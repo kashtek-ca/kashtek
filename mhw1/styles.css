@@ -390,7 +390,7 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 .focus-grid .c-edu     { --badge: #34708d; }
 .focus-grid .c-sci     { --badge: #755a9e; }
 .focus-grid .c-welfare { --badge: #9c546c; }
-.focus-grid .c-env     { --badge: #2f794a; }
+.focus-grid .c-env     { --badge: #3e7455; }
 .focus-grid figcaption {
   margin-top: 1rem;
   font-family: var(--serif-head); font-size: 1.05rem; font-weight: 500;
@@ -915,6 +915,25 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 @media (prefers-reduced-motion: reduce) { .op-cue svg { animation: none; } }
 .op-zone[data-slide="2"] .op-cue { color: #33241a; }
 
+/* photograph chooser — swaps the image used by both photo options. Review aid. */
+.op-imgpick {
+  position: absolute; z-index: 5; top: clamp(1rem, 3vh, 1.8rem);
+  left: 50%; transform: translateX(-50%);
+  display: none; align-items: center; gap: 0.15rem;
+  background: rgba(51,40,32,.86); color: #f4ebe1;
+  padding: 0.16rem 0.2rem;
+  font-family: var(--sans-label); font-size: 0.6rem; letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.op-zone[data-slide="1"] .op-imgpick,
+.op-zone[data-slide="2"] .op-imgpick { display: inline-flex; }
+.op-imgpick button {
+  appearance: none; border: 0; background: none; cursor: pointer;
+  color: inherit; font-size: 0.95rem; line-height: 1; padding: 0.1rem 0.35rem;
+}
+.op-imgpick button:hover { color: var(--logo-orange); }
+.op-imgpick .ip-name { padding: 0 0.3rem; min-width: 9ch; text-align: center; }
+
 /* chrome stays visible for the whole section so the options are always reachable */
 .op-zone[data-slide="2"] .op-arrow { background: rgba(51,36,26,.14); color: #33241a; }
 .op-zone[data-slide="2"] .op-dots span { background: rgba(51,36,26,.3); }
@@ -971,6 +990,27 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   margin: 0;
   text-wrap: balance;
 }
+
+/* typeface chooser on the statement — review aid, remove once chosen */
+.hero-copy[data-face="regular"] .hero-statement {
+  font-family: var(--serif-display);
+  font-style: normal;
+  letter-spacing: -0.005em;
+}
+.face-chooser {
+  display: inline-flex; align-items: center; gap: 0.15rem;
+  margin-top: 1.4rem;
+  background: rgba(51,40,32,.86); color: #f4ebe1;
+  padding: 0.16rem 0.2rem;
+  font-family: var(--sans-label); font-size: 0.62rem; letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.face-chooser button {
+  appearance: none; border: 0; background: none; cursor: pointer;
+  color: inherit; font-size: 0.95rem; line-height: 1; padding: 0.1rem 0.35rem;
+}
+.face-chooser button:hover { color: var(--logo-orange); }
+.face-chooser .fc-name { padding: 0 0.3rem; min-width: 7ch; text-align: center; }
 
 .mark-divider {
   display: flex; justify-content: center;

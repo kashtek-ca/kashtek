@@ -70,6 +70,11 @@
       </div>
     </div>
 
+    <span class="op-imgpick" role="group" aria-label="Opening photograph">
+      <button type="button" class="ip-prev" aria-label="Previous photograph">&#8249;</button>
+      <span class="ip-name">Ridge curve</span>
+      <button type="button" class="ip-next" aria-label="Next photograph">&#8250;</button>
+    </span>
     <button type="button" class="op-arrow op-prev" aria-label="Previous opening option">&#8249;</button>
     <button type="button" class="op-arrow op-next" aria-label="Next opening option">&#8250;</button>
     <div class="op-dots" aria-hidden="true">
@@ -85,10 +90,17 @@
 
   <section class="hero" id="hero">
     <div class="hero-grid">
-      <div class="hero-copy">
+      <div class="hero-copy" data-face="italic">
         <p class="hero-statement">
           Provide funding for worthy causes in the areas of healthcare, education, science, social welfare, and the environment.
         </p>
+        <!-- FACE-CHOOSER:START — review aid -->
+        <div><span class="face-chooser" role="group" aria-label="Statement typeface">
+          <button type="button" class="fc-prev" aria-label="Previous typeface">&#8249;</button>
+          <span class="fc-name">Italic</span>
+          <button type="button" class="fc-next" aria-label="Next typeface">&#8250;</button>
+        </span></div>
+        <!-- FACE-CHOOSER:END -->
         <p class="hero-lede"><a href="grants.html">See where we give &rarr;</a></p>
       </div>
       <figure class="hero-figure">
@@ -237,9 +249,44 @@
       header.classList.toggle("revealed", past);
     }
   }
+
+  // photograph chooser — swaps the image both photo options use
+  var pick = opening.querySelector(".op-imgpick");
+  if (pick){
+    var PHOTOS = [
+      { src:"../mhw/assets/banner/opening-tracks.jpg",   label:"Ridge curve" },
+      { src:"../mhw/assets/banner/opening-tracks-2.jpg", label:"Valley fog" },
+      { src:"../mhw/assets/banner/opening-tracks-3.jpg", label:"Track level" }
+    ];
+    var pi = 0, pname = pick.querySelector(".ip-name");
+    var imgs = opening.querySelectorAll(".opening-bg");
+    function setPhoto(n){
+      pi = (n + PHOTOS.length) % PHOTOS.length;
+      for (var k = 0; k < imgs.length; k++) imgs[k].src = PHOTOS[pi].src;
+      pname.textContent = PHOTOS[pi].label;
+    }
+    pick.querySelector(".ip-prev").addEventListener("click", function(){ setPhoto(pi-1); });
+    pick.querySelector(".ip-next").addEventListener("click", function(){ setPhoto(pi+1); });
+    setPhoto(0);
+  }
+
   window.addEventListener("scroll", update, { passive: true });
   window.addEventListener("resize", update);
   update();
+})();
+</script>
+<!-- FACE-CHOOSER:SCRIPT -->
+<script>
+(function(){
+  var copy = document.querySelector(".hero-copy[data-face]");
+  var box  = document.querySelector(".face-chooser");
+  if (!copy || !box) return;
+  var OPTS = [{k:"italic",l:"Italic"},{k:"regular",l:"Regular"}];
+  var i = 0, name = box.querySelector(".fc-name");
+  function show(n){ i=(n+OPTS.length)%OPTS.length; copy.setAttribute("data-face",OPTS[i].k); name.textContent=OPTS[i].l; }
+  box.querySelector(".fc-prev").addEventListener("click", function(){ show(i-1); });
+  box.querySelector(".fc-next").addEventListener("click", function(){ show(i+1); });
+  show(0);
 })();
 </script>
 </body>
