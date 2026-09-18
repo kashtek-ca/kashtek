@@ -43,15 +43,11 @@
 
 <main>
 
-  <!-- OPENING:START — three options on arrows. Review aid; keep only the chosen one. -->
+  <!-- OPENING:START — two options on arrows: brown ground, and the pinned Ridge-curve reveal. -->
   <div class="op-zone" id="opZone" data-slide="0">
   <section class="opening" id="opening">
     <div class="op-stage">
       <figure class="op-slide is-active" data-kind="solid"></figure>
-      <figure class="op-slide" data-kind="photo">
-        <img class="opening-bg graded" src="../mhw/assets/banner/opening-tracks.jpg"
-             alt="An aerial view of a railway curving through a misty evergreen forest">
-      </figure>
       <figure class="op-slide" data-kind="reveal">
         <img class="opening-bg graded" src="../mhw/assets/banner/opening-tracks.jpg" alt="" aria-hidden="true">
       </figure>
@@ -70,15 +66,10 @@
       </div>
     </div>
 
-    <span class="op-imgpick" role="group" aria-label="Opening photograph">
-      <button type="button" class="ip-prev" aria-label="Previous photograph">&#8249;</button>
-      <span class="ip-name">Ridge curve</span>
-      <button type="button" class="ip-next" aria-label="Next photograph">&#8250;</button>
-    </span>
     <button type="button" class="op-arrow op-prev" aria-label="Previous opening option">&#8249;</button>
     <button type="button" class="op-arrow op-next" aria-label="Next opening option">&#8250;</button>
     <div class="op-dots" aria-hidden="true">
-      <span class="is-active"></span><span></span><span></span>
+      <span class="is-active"></span><span></span>
     </div>
     <span class="op-cue" aria-hidden="true">
       Scroll
@@ -229,7 +220,7 @@
   // focused and the pinned frame appears to stall partway through.
   function update(){
     var p = 0;
-    if (i === 2){
+    if (i === 1){
       var travel = zone.offsetHeight - window.innerHeight;
       p = travel > 0 ? Math.max(0, Math.min(1, window.scrollY / travel)) : 0;
     }
@@ -245,30 +236,11 @@
       zone.style.setProperty("--oplogo", Math.max(0, Math.min(1, f)).toFixed(3));
     }
     if (header){
-      var past = (i === 2) ? p > 0.92 : window.scrollY > opening.offsetHeight - 90;
+      var past = (i === 1) ? p > 0.92 : window.scrollY > opening.offsetHeight - 90;
       header.classList.toggle("revealed", past);
     }
   }
 
-  // photograph chooser — swaps the image both photo options use
-  var pick = opening.querySelector(".op-imgpick");
-  if (pick){
-    var PHOTOS = [
-      { src:"../mhw/assets/banner/opening-tracks.jpg",   label:"Ridge curve" },
-      { src:"../mhw/assets/banner/opening-tracks-2.jpg", label:"Valley fog" },
-      { src:"../mhw/assets/banner/opening-tracks-3.jpg", label:"Track level" }
-    ];
-    var pi = 0, pname = pick.querySelector(".ip-name");
-    var imgs = opening.querySelectorAll(".opening-bg");
-    function setPhoto(n){
-      pi = (n + PHOTOS.length) % PHOTOS.length;
-      for (var k = 0; k < imgs.length; k++) imgs[k].src = PHOTOS[pi].src;
-      pname.textContent = PHOTOS[pi].label;
-    }
-    pick.querySelector(".ip-prev").addEventListener("click", function(){ setPhoto(pi-1); });
-    pick.querySelector(".ip-next").addEventListener("click", function(){ setPhoto(pi+1); });
-    setPhoto(0);
-  }
 
   window.addEventListener("scroll", update, { passive: true });
   window.addEventListener("resize", update);
