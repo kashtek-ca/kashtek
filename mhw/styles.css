@@ -663,6 +663,26 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   .bio-grid figure { position: static; max-width: 20rem; }
 }
 
+/* ---------- justified body copy ----------
+   Full justification only where the measure is long enough to absorb it:
+   the running prose at 64ch and the eligibility criteria. Hyphenation is
+   not optional here — justifying without it opens rivers of white space
+   between words. Short measures (sector notes at 46ch, ledes, pull quotes)
+   stay ragged-right, and everything reverts to ragged below 640px, where
+   a phone column is too narrow to justify without visible gaps. */
+.prose p,
+.criteria li {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+}
+.prose p.pullquote { text-align: left; hyphens: manual; }
+@media (max-width: 640px) {
+  .prose p,
+  .criteria li { text-align: left; hyphens: manual; }
+}
+
 .pullquote {
   border-left: 3px solid var(--terracotta);
   padding: 0.4rem 0 0.4rem 1.5rem;
