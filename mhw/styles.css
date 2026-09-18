@@ -878,15 +878,19 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   clip-path: inset(calc(var(--oplogo, 1) * 100%) 0 0 0);
 }
 
+/* White glyph on a dark scrim, held through the whole sweep: the ground
+   under these arrows runs from brown or photograph to cream, so a mark
+   that reads against one end disappears at the other. The scrim is what
+   keeps the white legible once the cream arrives. */
 .op-arrow {
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 4;
   width: 2.6rem; height: 2.6rem; border-radius: 50%;
   border: 0; cursor: pointer;
-  background: rgba(253,251,245,.82); color: #33241a;
+  background: rgba(51,36,26,.42); color: #fff;
   font-size: 1.5rem; line-height: 1; display: grid; place-items: center;
   transition: background .2s ease, transform .2s ease;
 }
-.op-arrow:hover { background: #fdfbf5; }
+.op-arrow:hover { background: rgba(51,36,26,.62); }
 .op-arrow:active { transform: translateY(-50%) scale(.94); }
 .op-prev { left: clamp(0.75rem, 3vw, 2rem); }
 .op-next { right: clamp(0.75rem, 3vw, 2rem); }
@@ -915,7 +919,6 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 /* photograph chooser — swaps the image used by both photo options. Review aid. */
 
 /* chrome stays visible for the whole section so the options are always reachable */
-.op-zone .op-arrow { background: rgba(51,36,26,.14); color: #33241a; }
 .op-zone .op-dots span { background: rgba(51,36,26,.3); }
 .op-zone .op-dots span.is-active { background: #33241a; }
 
