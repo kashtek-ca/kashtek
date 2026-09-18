@@ -963,37 +963,17 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 
 /* the statement that replaces the quote in the first section */
 .hero-statement {
-  font-family: var(--serif-head);
-  font-style: italic;
+  font-family: var(--serif-display);
+  font-style: normal;
   font-weight: 400;
   font-size: clamp(1.9rem, 3.2vw, 3rem);
   line-height: 1.18;
-  letter-spacing: -0.012em;
+  letter-spacing: -0.005em;
   color: var(--ink);
   margin: 0;
   text-wrap: balance;
 }
 
-/* typeface chooser on the statement — review aid, remove once chosen */
-.hero-copy[data-face="regular"] .hero-statement {
-  font-family: var(--serif-display);
-  font-style: normal;
-  letter-spacing: -0.005em;
-}
-.face-chooser {
-  display: inline-flex; align-items: center; gap: 0.15rem;
-  margin-top: 1.4rem;
-  background: rgba(51,40,32,.86); color: #f4ebe1;
-  padding: 0.16rem 0.2rem;
-  font-family: var(--sans-label); font-size: 0.62rem; letter-spacing: .1em;
-  text-transform: uppercase;
-}
-.face-chooser button {
-  appearance: none; border: 0; background: none; cursor: pointer;
-  color: inherit; font-size: 0.95rem; line-height: 1; padding: 0.1rem 0.35rem;
-}
-.face-chooser button:hover { color: var(--logo-orange); }
-.face-chooser .fc-name { padding: 0 0.3rem; min-width: 7ch; text-align: center; }
 
 .mark-divider {
   display: flex; justify-content: center;
