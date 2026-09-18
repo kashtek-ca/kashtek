@@ -884,14 +884,26 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
    keeps the white legible once the cream arrives. */
 .op-arrow {
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 4;
-  width: 2.6rem; height: 2.6rem; border-radius: 50%;
-  border: 0; cursor: pointer;
-  background: rgba(51,36,26,.42); color: #fff;
-  font-size: 1.5rem; line-height: 1; display: grid; place-items: center;
+  min-height: 3.2rem; padding: 0.7rem 1.15rem; border-radius: 999px;
+  border: 2px solid var(--logo-orange, #ff8b00); cursor: pointer;
+  background: #1b120b; color: #fff;
+  font-family: var(--sans-label, system-ui, sans-serif);
+  font-size: 0.92rem; font-weight: 700; letter-spacing: 0.06em;
+  line-height: 1; display: flex; align-items: center; gap: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
   transition: background .2s ease, transform .2s ease;
+  animation: op-arrow-pulse 2.4s ease-in-out infinite;
 }
-.op-arrow:hover { background: rgba(51,36,26,.62); }
-.op-arrow:active { transform: translateY(-50%) scale(.94); }
+.op-arrow-glyph { font-size: 1.5rem; line-height: 1; }
+.op-arrow-text { white-space: nowrap; }
+.op-arrow:hover { background: var(--logo-orange, #ff8b00); color: #33241a; animation: none; }
+.op-arrow:focus-visible { outline: 3px solid var(--logo-orange, #ff8b00); outline-offset: 3px; }
+.op-arrow:active { transform: translateY(-50%) scale(.96); animation: none; }
+@keyframes op-arrow-pulse {
+  0%, 100% { box-shadow: 0 4px 14px rgba(0,0,0,.35); }
+  50%      { box-shadow: 0 4px 14px rgba(0,0,0,.35), 0 0 0 10px rgba(255,255,255,.14); }
+}
+@media (prefers-reduced-motion: reduce) { .op-arrow { animation: none; } }
 .op-prev { left: clamp(0.75rem, 3vw, 2rem); }
 .op-next { right: clamp(0.75rem, 3vw, 2rem); }
 
@@ -926,8 +938,18 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   .op-zone { height: auto; }
   .op-zone .opening { position: relative; }
 }
+/* On a phone the two pills would sit across the wordmark, so only one
+   remains — with two options either button does the same job — and it drops
+   to the foot of the frame, clear of the mark and above the dots. */
 @media (max-width: 720px) {
-  .op-arrow { width: 2.2rem; height: 2.2rem; font-size: 1.25rem; }
+  .op-prev { display: none; }
+  .op-next {
+    top: auto; bottom: clamp(6.5rem, 15vh, 8.5rem);
+    left: 50%; right: auto; transform: translateX(-50%);
+    min-height: 3rem; padding: 0.7rem 1.3rem; font-size: 0.85rem;
+  }
+  .op-next:active { transform: translateX(-50%) scale(.96); }
+  .op-arrow-glyph { font-size: 1.3rem; }
 }
 
 
