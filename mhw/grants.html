@@ -60,17 +60,10 @@
         <h2>Where We Give</h2>
       </div>
       <!-- DRAFT COPY: sector descriptions to be reviewed by the board -->
-      <div class="give-list" data-tagstyle="background">
+      <div class="give-list">
         <article class="give-row">
           <div class="give-media grain graded">
             <span class="tag">01</span>
-            <!-- TAG-CHOOSER:START — review aid: cycles every number box on this page -->
-            <span class="tag-chooser" role="group" aria-label="Number box colour">
-              <button type="button" class="tc-prev" aria-label="Previous number colour">&#8249;</button>
-              <span class="tc-name">Background</span>
-              <button type="button" class="tc-next" aria-label="Next number colour">&#8250;</button>
-            </span>
-            <!-- TAG-CHOOSER:END -->
             <img src="assets/sectors/options/healthcare-heart.jpg" alt="Cupped hands holding a knitted heart marked with a medical cross">
           </div>
           <div class="give-body">
@@ -98,22 +91,16 @@
             <p>Backing scientific inquiry and innovation in the spirit of the Foundation's founder — an inventor who believed better solutions could always be built.</p>
           </div>
         </article>
-        <!-- Social Welfare photographs are from Pexels (pexels.com), used under the
-             Pexels licence: free for commercial and non-commercial use, no attribution
-             required, no permission needed. Sources:
-               welfare-hands.jpg  — Anastasia Shuraeva, pexels.com/photo/9501978/
-               welfare-fists.jpg  — Diva Plavalaguna,  pexels.com/photo/6146704/
-               welfare-star.jpg   — Diva Plavalaguna,  pexels.com/photo/6146696/
-             Originals cropped and resized to 2496x1664; otherwise unaltered. -->
+        <!-- welfare-hands.jpg is from Pexels (pexels.com), by Anastasia Shuraeva,
+             pexels.com/photo/9501978/ — used under the Pexels licence: free for
+             commercial and non-commercial use, no attribution required, no permission
+             needed. Cropped and resized to 2496x1664; otherwise unaltered. The two
+             unused alternates in this directory, welfare-fists.jpg and welfare-star.jpg,
+             are from the same source under the same licence. -->
         <article class="give-row">
-          <div class="give-media grain graded gm-car" data-count="3">
+          <div class="give-media grain graded">
             <span class="tag">04</span>
-            <img class="gm-slide is-active" src="assets/sectors/options/welfare-hands.jpg" alt="" data-dir="Hands together">
-            <img class="gm-slide" src="assets/sectors/options/welfare-fists.jpg" alt="" data-dir="Circle of fists">
-            <img class="gm-slide" src="assets/sectors/options/welfare-star.jpg" alt="" data-dir="Star of hands">
-            <button type="button" class="gm-arrow gm-prev" aria-label="Previous option">&#8249;</button>
-            <button type="button" class="gm-arrow gm-next" aria-label="Next option">&#8250;</button>
-            <span class="gm-badge"><b class="gm-dir">Hands together</b><span class="gm-idx">1 / 3</span></span>
+            <img src="assets/sectors/options/welfare-hands.jpg" alt="Hands of several people stacked together over grass">
           </div>
           <div class="give-body">
             <h3>Social Welfare</h3>
@@ -208,50 +195,5 @@
 </script>
 <!-- ANCHOR-FIX:END -->
 
-<!-- GIVE-CAROUSEL:START — image option switcher for the board's choosing phase -->
-<script>
-(function(){
-  document.querySelectorAll(".gm-car").forEach(function(car){
-    var slides = Array.prototype.slice.call(car.querySelectorAll(".gm-slide"));
-    if (slides.length < 2) return;
-    var dirEl = car.querySelector(".gm-dir");
-    var idxEl = car.querySelector(".gm-idx");
-    var i = 0;
-    function show(n){
-      i = (n + slides.length) % slides.length;
-      slides.forEach(function(s, k){ s.classList.toggle("is-active", k === i); });
-      if (dirEl) dirEl.textContent = slides[i].dataset.dir || "";
-      if (idxEl) idxEl.textContent = (i + 1) + " / " + slides.length;
-    }
-    car.querySelector(".gm-prev").addEventListener("click", function(){ show(i - 1); });
-    car.querySelector(".gm-next").addEventListener("click", function(){ show(i + 1); });
-    show(0);
-  });
-})();
-</script>
-<!-- GIVE-CAROUSEL:END -->
-<!-- TAG-CHOOSER:SCRIPT — remove together with the .tag-chooser markup -->
-<script>
-(function(){
-  var list = document.querySelector(".give-list");
-  var box  = document.querySelector(".tag-chooser");
-  if (!list || !box) return;
-  var OPTIONS = [
-    { key:"background", label:"Background" },
-    { key:"orange",     label:"Orange" },
-    { key:"white",      label:"White" }
-  ];
-  var i = 0;
-  var name = box.querySelector(".tc-name");
-  function show(n){
-    i = (n + OPTIONS.length) % OPTIONS.length;
-    list.setAttribute("data-tagstyle", OPTIONS[i].key);
-    name.textContent = OPTIONS[i].label;
-  }
-  box.querySelector(".tc-prev").addEventListener("click", function(){ show(i-1); });
-  box.querySelector(".tc-next").addEventListener("click", function(){ show(i+1); });
-  show(0);
-})();
-</script>
 </body>
 </html>
