@@ -97,10 +97,21 @@
              needed. Cropped and resized to 2496x1664; otherwise unaltered. The two
              unused alternates in this directory, welfare-fists.jpg and welfare-star.jpg,
              are from the same source under the same licence. -->
+        <!-- Social Welfare options for the board (Sept 23 2026). The first is the
+             Pexels image chosen Sept 18. The other three were supplied by the client
+             as low-resolution stock previews (visible watermarks) for choosing only;
+             whichever is picked must be licensed and replaced with the full-size file
+             (target 1800x1200) before launch. -->
         <article class="give-row">
-          <div class="give-media grain graded">
+          <div class="give-media grain graded gm-car" data-count="4">
             <span class="tag">04</span>
-            <img src="assets/sectors/options/welfare-hands.jpg" alt="Hands of several people stacked together over grass">
+            <img class="gm-slide is-active" src="assets/sectors/options/welfare-hands.jpg" alt="Hands of several people stacked together over grass" data-dir="Hands together">
+            <img class="gm-slide" src="assets/sectors/options/welfare-generations.jpg" alt="Hands of several generations stacked together over grass" data-dir="Generations">
+            <img class="gm-slide" src="assets/sectors/options/welfare-cupped.jpg" alt="Hands cupped protectively around another pair of hands" data-dir="Cupped hands">
+            <img class="gm-slide" src="assets/sectors/options/welfare-circle.jpg" alt="Hands forming a circle against a blue sky" data-dir="Circle of hands">
+            <button type="button" class="gm-arrow gm-prev" aria-label="Previous option">&#8249;</button>
+            <button type="button" class="gm-arrow gm-next" aria-label="Next option">&#8250;</button>
+            <span class="gm-badge"><b class="gm-dir">Hands together</b><span class="gm-idx">1 / 4</span></span>
           </div>
           <div class="give-body">
             <h3>Social Welfare</h3>
@@ -195,5 +206,26 @@
 </script>
 <!-- ANCHOR-FIX:END -->
 
+<!-- GIVE-CAROUSEL:SCRIPT — board choosing phase; remove with the last .gm-car -->
+<script>
+(function(){
+  document.querySelectorAll(".gm-car").forEach(function(car){
+    var slides = Array.prototype.slice.call(car.querySelectorAll(".gm-slide"));
+    if (slides.length < 2) return;
+    var dirEl = car.querySelector(".gm-dir");
+    var idxEl = car.querySelector(".gm-idx");
+    var i = 0;
+    function show(n){
+      i = (n + slides.length) % slides.length;
+      slides.forEach(function(s, k){ s.classList.toggle("is-active", k === i); });
+      if (dirEl) dirEl.textContent = slides[i].dataset.dir || "";
+      if (idxEl) idxEl.textContent = (i + 1) + " / " + slides.length;
+    }
+    car.querySelector(".gm-prev").addEventListener("click", function(){ show(i - 1); });
+    car.querySelector(".gm-next").addEventListener("click", function(){ show(i + 1); });
+    show(0);
+  });
+})();
+</script>
 </body>
 </html>
