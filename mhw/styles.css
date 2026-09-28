@@ -1151,3 +1151,35 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
    ============================================================ */
 
 .contact-hero { padding-block: clamp(2.5rem, 5vw, 3.75rem) clamp(2.5rem, 5vw, 3.75rem); }
+
+/* ---------- MOBILE PASS (Sept 28 2026) ---------- */
+
+/* The eligibility "exclude" lead sat directly on the first rule. */
+.exclude-lead { margin-bottom: 0.75rem; }
+
+/* Scroll cue: light over the photograph, gone once the page starts moving
+   (it was dark ink, which vanished against the forest). */
+.op-zone .op-cue {
+  color: #fdfbf5;
+  text-shadow: 0 1px 6px rgba(0,0,0,.55);
+  opacity: calc(0.9 - var(--op, 0) * 6);
+}
+
+@media (max-width: 760px) {
+  /* Tap targets: standalone links and menu sub-links reach ~44px. */
+  .hero-lede a, .more-link a, .footer-wrap a { display: inline-block; padding-block: 0.7rem; }
+  .dropdown a { padding-block: 0.7rem; }
+}
+
+@media (max-width: 600px) {
+  /* The lockup is the first thing on a phone; give it more of the width. */
+  .op-lockup img { width: 78vw; }
+  /* Marvin's portrait fills the column instead of stopping short of it. */
+  .bio-grid figure { max-width: none; }
+}
+
+@media (max-width: 420px) {
+  /* The fifth circle has a row to itself; keep its cell one column wide so
+     it matches the other four instead of growing to the full width. */
+  .focus-grid li:last-child { width: calc((100% - 1rem) / 2); justify-self: center; }
+}
