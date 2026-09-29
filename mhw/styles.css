@@ -1059,3 +1059,5 @@ section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
   
   .focus-grid li:last-child { width: calc((100% - 1rem) / 2); justify-self: center; }
 }
+
+.apply-card p + p { margin-top: 0.9rem; }
