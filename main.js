@@ -1,12 +1,23 @@
 // KashTek shared behaviour: mobile nav + scroll reveal
 (function () {
   var toggle = document.querySelector('.nav-toggle');
-  if (toggle) {
+  var links = document.querySelector('.nav-links');
+  function setMenu(open) {
+    links.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+  if (toggle && links) {
     toggle.addEventListener('click', function () {
-      var links = document.querySelector('.nav-links');
-      var expanded = this.getAttribute('aria-expanded') === 'true';
-      links.classList.toggle('open');
-      this.setAttribute('aria-expanded', String(!expanded));
+      setMenu(this.getAttribute('aria-expanded') !== 'true');
+    });
+    links.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setMenu(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && links.classList.contains('open')) {
+        setMenu(false);
+        toggle.focus();
+      }
     });
   }
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KashTek — AI-Driven Project & Event Management Consulting</title>
-  <meta name="description" content="KashTek is a Vancouver technology and AI consulting practice. We work alongside small businesses, individuals, and non-profits to design, build, and refine custom AI, analytics, and automation solutions.">
+  <meta name="description" content="Vancouver technology and AI consulting for small businesses, individuals, and non-profits. Custom AI, analytics, and automation, built with you.">
   <meta name="theme-color" content="#10160f">
   <link rel="canonical" href="https://kashtek.ca/">
   <link rel="icon" type="image/png" href="favicon.png">
@@ -111,13 +111,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:ital,wght@0,400..600;1,400&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="img/hero.jpg" imagesrcset="img/hero-mobile.jpg 800w, img/hero.jpg 1376w" imagesizes="100vw">
   <link rel="stylesheet" href="styles.css">
+  <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <nav class="nav" aria-label="Main navigation">
     <a href="index.html" class="brand">Kash<em>Tek</em></a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
-    <ul class="nav-links">
+    <button class="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="events.html">Events</a></li>
@@ -125,6 +127,7 @@
     </ul>
   </nav>
 
+  <main id="main">
   <header class="hero">
     <div class="hero-bg" role="presentation">
       <img src="img/hero.jpg" srcset="img/hero-mobile.jpg 800w, img/hero.jpg 1376w" sizes="100vw" alt="" fetchpriority="high">
@@ -151,22 +154,22 @@
           <div class="cell-photo" role="presentation"><img src="img/bento-ai.jpg" srcset="img/bento-ai-mobile.jpg 600w, img/bento-ai.jpg 747w" sizes="(max-width:900px) 100vw, 460px" alt="" loading="lazy"></div>
           <h3>AI strategy &amp; integration</h3>
           <p>We help you figure out where AI fits, prototype together, and refine until it genuinely saves you time and money.</p>
-          <a class="cell-link" href="services.html#ai-strategy">Learn more</a>
+          <a class="cell-link" href="services.html#ai-strategy" aria-label="Learn more about AI strategy and integration">Learn more</a>
         </article>
         <article class="cell reveal">
           <h3>Data analytics &amp; BI</h3>
           <p>Dashboards, reports, and models built around the questions your business actually needs answered.</p>
-          <a class="cell-link" href="services.html#data-analytics">Learn more</a>
+          <a class="cell-link" href="services.html#data-analytics" aria-label="Learn more about data analytics and BI">Learn more</a>
         </article>
         <article class="cell cell-tint reveal">
           <h3>Workflow automation</h3>
           <p>We map your workflows, connect your tools, and cut the busywork out of your team's day.</p>
-          <a class="cell-link" href="services.html#workflow-automation">Learn more</a>
+          <a class="cell-link" href="services.html#workflow-automation" aria-label="Learn more about workflow automation">Learn more</a>
         </article>
-        <article class="cell cell-accent reveal" style="grid-column:2 / span 2">
+        <article class="cell cell-accent reveal">
           <h3>Project management consulting</h3>
           <p>We embed with your team to plan, organize, and drive complex initiatives across the finish line. On scope, on time.</p>
-          <a class="cell-link" href="services.html#project-management">Learn more</a>
+          <a class="cell-link" href="services.html#project-management" aria-label="Learn more about project management consulting">Learn more</a>
         </article>
       </div>
     </div>
@@ -201,6 +204,8 @@
       </dl>
     </div>
   </section>
+
+  </main>
 
   <footer class="footer">
     <span>KashTek, Vancouver BC</span>

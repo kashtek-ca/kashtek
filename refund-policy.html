@@ -16,11 +16,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <nav class="nav" aria-label="Main navigation">
     <a href="index.html" class="brand">Kash<em>Tek</em></a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
-    <ul class="nav-links">
+    <button class="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html#about">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="events.html">Events</a></li>
@@ -34,7 +35,7 @@
     </div>
   </header>
 
-  <main class="content">
+  <main id="main" class="content">
     <p class="effective">Effective date: April 22, 2026</p>
 
     <p>This policy outlines how cancellations, refunds, and disputes are handled for consulting services provided by Kashtek. We aim to be fair and transparent in all situations.</p>
